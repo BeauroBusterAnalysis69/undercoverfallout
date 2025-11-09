@@ -387,20 +387,20 @@ main {
     transform: translateX(-50%);
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     background-color: var(--bunker-gray);
     color: var(--glow-red);
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 0.4rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     border: 1px solid var(--glow-red);
 }
 
 .pulse {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: var(--glow-red);
     border-radius: 50%;
     animation: pulse 2s infinite;
