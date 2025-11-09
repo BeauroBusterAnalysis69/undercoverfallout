@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commentary | UNDERCOVER FALLOUT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+
+    <header>
+        <div class="container">
+            <h1 class="glitch" data-text="UNDERCOVER FALLOUT">UNDERCOVER FALLOUT</h1>
+            <p class="tagline">Where Truth Meets Fiction in the Digital Bunker</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="episodes.html">EPISODES</a>
+            <a href="commentary.html" class="active">COMMENTARY</a>
+            <a href="mission.html">THE MISSION</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="page-header">
+            <h2>COMMENTARY FEED</h2>
+            <p class="page-intro">
+                Between episodes, Casey writes. Raw thoughts, cultural commentary, and theories
+                that don't fit into a 15-minute audio format. This is the written bunker.
+            </p>
+        </section>
+
+        <section class="commentary-grid">
+            <!-- Post 1 -->
+            <article class="commentary-card">
+                <div class="commentary-header">
+                    <span class="commentary-category">BIG TECH</span>
+                    <span class="commentary-date">January 2025</span>
+                </div>
+                <h3>Why AI is the Last Honest Medium</h3>
+                <p>
+                    Here's the thing nobody wants to admit: AI doesn't lie because it has no incentive to.
+                    It doesn't need your clicks, your engagement, or your validation. NotebookLM doesn't
+                    care if you like what it says. It just processes and narrates. Meanwhile, every human
+                    voice in media is selling something—an ideology, a product, a personal brand.
+                </p>
+                <p>
+                    That's why I use it. Not because it's perfect. Because it's indifferent. And in 2025,
+                    indifference is the closest thing we have to objectivity.
+                </p>
+                <a href="#" class="read-more">READ FULL POST →</a>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="commentary-card">
+                <div class="commentary-header">
+                    <span class="commentary-category">GEOPOLITICS</span>
+                    <span class="commentary-date">January 2025</span>
+                </div>
+                <h3>The Fiction We Call "National Security"</h3>
+                <p>
+                    Let me paint you a picture: Three agencies. Same target. Different intel. Nobody talks.
+                    Why? Because the system isn't broken—it's designed that way. Silos aren't inefficiency.
+                    They're architecture. Plausible deniability at scale.
+                </p>
+                <p>
+                    When the FBI, DEA, and CIA all know parts of the same story but never share notes,
+                    that's not incompetence. That's strategy. And if you think that's conspiracy theory,
+                    you haven't been paying attention to how power actually works.
+                </p>
+                <a href="#" class="read-more">READ FULL POST →</a>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="commentary-card">
+                <div class="commentary-header">
+                    <span class="commentary-category">PERSONAL</span>
+                    <span class="commentary-date">January 2025</span>
+                </div>
+                <h3>The Fallout: A Personal Reckoning</h3>
+                <p>
+                    2024 broke me. Lost everything to fraudsters. Met with federal agencies. Thought the
+                    CIA was coming. Was on drugs. Lost a friend. The whole damn thing was a fallout in
+                    every sense of the word.
+                </p>
+                <p>
+                    So why call this project "Undercover Fallout"? Because I'm rebuilding in the wreckage.
+                    And the best way to process trauma is to turn it into art. Half real, half fiction,
+                    fully mine. This is my bunker. Welcome to the chaos.
+                </p>
+                <a href="#" class="read-more">READ FULL POST →</a>
+            </article>
+
+            <!-- Post 4 (Placeholder) -->
+            <article class="commentary-card placeholder">
+                <div class="commentary-header">
+                    <span class="commentary-category">COMING SOON</span>
+                    <span class="commentary-date">TBD</span>
+                </div>
+                <h3>More Transmissions Incoming</h3>
+                <p>
+                    The bunker is just getting started. More commentary, more theories, more chaos.
+                    Check back soon for fresh posts from the fallout zone.
+                </p>
+            </article>
+        </section>
+
+        <section class="subscribe-section">
+            <h3>STAY IN THE LOOP</h3>
+            <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;">
+                Get Casey's latest commentary delivered straight to your inbox.
+            </p>
+            <div style="text-align: center;">
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 UNDERCOVER FALLOUT | Broadcasting from an undisclosed location</p>
+            <p class="disclaimer">This is a work of creative commentary. Some elements are real. Some are fiction. Good luck figuring out which is which.</p>
+        </div>
+    </footer>
+
+    <style>
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--glow-green);
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .page-intro {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .commentary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .commentary-card {
+            background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+            border: 1px solid var(--metal-light);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .commentary-card:hover {
+            border-color: var(--glow-amber);
+            box-shadow: 0 0 30px rgba(255, 149, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .commentary-card.placeholder {
+            opacity: 0.6;
+        }
+
+        .commentary-card.placeholder:hover {
+            border-color: var(--metal-light);
+            box-shadow: none;
+            transform: none;
+        }
+
+        .commentary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--metal-light);
+        }
+
+        .commentary-category {
+            background-color: var(--bunker-gray);
+            color: var(--glow-green);
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--glow-green);
+        }
+
+        .commentary-date {
+            font-size: 0.8rem;
+            color: var(--metal-light);
+            letter-spacing: 1px;
+        }
+
+        .commentary-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--glow-amber);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .commentary-card p {
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--glow-green);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            text-shadow: 0 0 10px var(--glow-green);
+            transform: translateX(5px);
+        }
+
+        .subscribe-section {
+            margin-top: 80px;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+            border: 1px solid var(--metal-light);
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-form input {
+            padding: 15px 25px;
+            background-color: var(--bunker-gray);
+            border: 1px solid var(--metal-light);
+            color: var(--text-primary);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            min-width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--glow-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .subscribe-form input::placeholder {
+            color: var(--metal-light);
+        }
+
+        @media (max-width: 768px) {
+            .commentary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .subscribe-form input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>

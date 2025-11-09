@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodes | UNDERCOVER FALLOUT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+
+    <header>
+        <div class="container">
+            <h1 class="glitch" data-text="UNDERCOVER FALLOUT">UNDERCOVER FALLOUT</h1>
+            <p class="tagline">Where Truth Meets Fiction in the Digital Bunker</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="index.html">HOME</a>
+            <a href="episodes.html" class="active">EPISODES</a>
+            <a href="commentary.html">COMMENTARY</a>
+            <a href="mission.html">THE MISSION</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="page-header">
+            <h2>TRANSMISSION ARCHIVE</h2>
+            <p class="page-intro">
+                Every episode is a 15-20 minute deep dive into the chaos. Powered by NotebookLM,
+                narrated by AI, scripted by reality. Welcome to the archive.
+            </p>
+        </section>
+
+        <section class="episodes-list">
+            <!-- Episode 1 -->
+            <div class="episode-card">
+                <div class="episode-number">EP 001</div>
+                <div class="episode-content">
+                    <h4>The System is Rigged (And We're All Playing Along)</h4>
+                    <p class="episode-meta">Runtime: 15:32 | Classification: UNCLASSIFIED | Date: TBD</p>
+                    <p>
+                        Welcome to the bunker. In this inaugural episode, Casey breaks down why 2024
+                        feels like a simulation, how the fraudsters won, and why NotebookLM might be
+                        the only honest voice left in media. This is where it all begins—the fallout,
+                        the fraud, and the FBI.
+                    </p>
+                    <div class="episode-tags">
+                        <span class="tag">BIG TECH</span>
+                        <span class="tag">FRAUD</span>
+                        <span class="tag">RECOVERY</span>
+                    </div>
+                    <a href="#" class="btn btn-listen">LISTEN NOW</a>
+                </div>
+            </div>
+
+            <!-- Episode 2 (Placeholder) -->
+            <div class="episode-card">
+                <div class="episode-number">EP 002</div>
+                <div class="episode-content">
+                    <h4>Coming Soon: The Geopolitical Game</h4>
+                    <p class="episode-meta">Runtime: TBD | Classification: CLASSIFIED | Date: TBD</p>
+                    <p>
+                        What if agency silos aren't bureaucratic incompetence, but strategic design?
+                        Casey explores the invisible architecture of modern espionage and why your
+                        smartphone knows more about geopolitics than you do.
+                    </p>
+                    <div class="episode-tags">
+                        <span class="tag">GEOPOLITICS</span>
+                        <span class="tag">ESPIONAGE</span>
+                        <span class="tag">THEORY</span>
+                    </div>
+                    <a href="#" class="btn btn-listen" style="opacity: 0.5; pointer-events: none;">COMING SOON</a>
+                </div>
+            </div>
+
+            <!-- Episode 3 (Placeholder) -->
+            <div class="episode-card">
+                <div class="episode-number">EP 003</div>
+                <div class="episode-content">
+                    <h4>Coming Soon: Digital Recovery in a Broken System</h4>
+                    <p class="episode-meta">Runtime: TBD | Classification: PERSONAL | Date: TBD</p>
+                    <p>
+                        From drugs to fraud to the FBI—Casey's personal fallout story. This isn't
+                        your typical recovery narrative. This is what happens when the system fails
+                        you, and you have to rebuild in the wreckage.
+                    </p>
+                    <div class="episode-tags">
+                        <span class="tag">PERSONAL</span>
+                        <span class="tag">RECOVERY</span>
+                        <span class="tag">REAL TALK</span>
+                    </div>
+                    <a href="#" class="btn btn-listen" style="opacity: 0.5; pointer-events: none;">COMING SOON</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe-section">
+            <h3>DON'T MISS A TRANSMISSION</h3>
+            <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;">
+                New episodes drop weekly. Stay plugged into the bunker.
+            </p>
+            <div style="text-align: center;">
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+                </form>
+                <p style="font-size: 0.75rem; color: var(--metal-light); margin-top: 15px;">
+                    No spam. No tracking. Just pure unfiltered transmissions from the bunker.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 UNDERCOVER FALLOUT | Broadcasting from an undisclosed location</p>
+            <p class="disclaimer">This is a work of creative commentary. Some elements are real. Some are fiction. Good luck figuring out which is which.</p>
+        </div>
+    </footer>
+
+    <style>
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--glow-green);
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .page-intro {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .episodes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .episode-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: var(--bunker-gray);
+            color: var(--glow-amber);
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--metal-light);
+        }
+
+        .subscribe-section {
+            margin-top: 80px;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+            border: 1px solid var(--metal-light);
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-form input {
+            padding: 15px 25px;
+            background-color: var(--bunker-gray);
+            border: 1px solid var(--metal-light);
+            color: var(--text-primary);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            min-width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--glow-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .subscribe-form input::placeholder {
+            color: var(--metal-light);
+        }
+
+        @media (max-width: 768px) {
+            .subscribe-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .subscribe-form input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>
