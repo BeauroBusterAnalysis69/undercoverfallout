@@ -10,7 +10,7 @@
     <div class="glitch-overlay"></div>
 
     <header>
-        <div class="version-badge">v3.1</div>
+        <div class="version-badge">v3.2</div>
         <div class="broadcast-badge">
             <span class="pulse"></span>
             LIVE FROM THE BUNKER
@@ -41,7 +41,10 @@
             </p>
 
             <div class="episode-card">
-                <div class="episode-number">EP 001</div>
+                <div class="episode-number" id="playButton">
+                    <div class="play-icon">▶</div>
+                    EP 001
+                </div>
                 <div class="episode-content">
                     <h4>The System is Rigged (And We're All Playing Along)</h4>
                     <p class="episode-meta">Runtime: 15:32 | Classified: UNCLASSIFIED</p>
@@ -50,7 +53,21 @@
                         2024 feels like a simulation, how the fraudsters won, and why NotebookLM
                         might be the only honest voice left in media.
                     </p>
-                    <a href="#" class="btn btn-listen">LISTEN NOW</a>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer">
+                        <audio id="episodeAudio" preload="metadata">
+                            <source src="your-audio-file.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn">▶</button>
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay">0:00 / 15:32</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -84,5 +101,73 @@
             <p class="disclaimer">This is a work of creative commentary. Some elements are real. Some are fiction. Good luck figuring out which is which.</p>
         </div>
     </footer>
+
+    <script>
+        // Audio Player Controls
+        const audio = document.getElementById('episodeAudio');
+        const playButton = document.getElementById('playButton');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const progressBar = document.getElementById('progressBar');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const playIcon = document.querySelector('.play-icon');
+
+        // Show player and start playing when EP 001 is clicked
+        playButton.addEventListener('click', function() {
+            audioPlayer.style.display = 'block';
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸';
+                playIcon.textContent = '⏸';
+                playButton.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸';
+                playIcon.textContent = '⏸';
+                playButton.classList.add('playing');
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶';
+                playIcon.textContent = '▶';
+                playButton.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio.addEventListener('timeupdate', function() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60);
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60);
+
+            timeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        document.querySelector('.progress-container').addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio.currentTime = percentage * audio.duration;
+        });
+
+        // Reset when audio ends
+        audio.addEventListener('ended', function() {
+            playPauseBtn.textContent = '▶';
+            playIcon.textContent = '▶';
+            playButton.classList.remove('playing');
+            progressBar.style.width = '0%';
+        });
+    </script>
 </body>
 </html>
