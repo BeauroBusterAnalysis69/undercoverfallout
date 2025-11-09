@@ -23,11 +23,39 @@
 
 body {
     font-family: 'Share Tech Mono', monospace;
-    background-color: var(--bunker-black);
+    background:
+        radial-gradient(ellipse 900px 400px at 50% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 500px 250px at 20% 60%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse 400px 200px at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.15) 48px,
+            rgba(0, 0, 0, 1) 50px,
+            rgba(0, 0, 0, 0.7) 52px,
+            transparent 52px,
+            transparent 100px
+        ),
+        repeating-linear-gradient(
+            135deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.15) 48px,
+            rgba(0, 0, 0, 1) 50px,
+            rgba(0, 0, 0, 0.7) 52px,
+            transparent 52px,
+            transparent 100px
+        ),
+        radial-gradient(ellipse at 40% 50%, rgba(35, 35, 35, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 60% 70%, rgba(30, 30, 30, 0.2) 0%, transparent 60%),
+        linear-gradient(135deg, #0d0d0d 0%, #050505 50%, #0d0d0d 100%);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.5);
 }
 
 /* Glitch Overlay Effect */
@@ -63,34 +91,83 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(180deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+    background:
+        radial-gradient(ellipse 800px 300px at 50% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(ellipse 400px 200px at 30% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse 300px 150px at 75% 60%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.15) 48px,
+            rgba(0, 0, 0, 1) 50px,
+            rgba(0, 0, 0, 0.7) 52px,
+            transparent 52px,
+            transparent 100px
+        ),
+        repeating-linear-gradient(
+            135deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.15) 48px,
+            rgba(0, 0, 0, 1) 50px,
+            rgba(0, 0, 0, 0.7) 52px,
+            transparent 52px,
+            transparent 100px
+        ),
+        radial-gradient(ellipse at 30% 40%, rgba(40, 40, 40, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(35, 35, 35, 0.2) 0%, transparent 60%),
+        linear-gradient(135deg, #0d0d0d 0%, #050505 50%, #0d0d0d 100%);
     border-bottom: 2px solid var(--metal-light);
-    padding: 40px 0 30px;
+    padding: 20px 0 15px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 255, 65, 0.1);
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.06),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.8),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.6),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.02),
+        0 4px 20px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+.version-badge {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    padding: 5px 10px;
+    border: 1px solid var(--metal-light);
+    background-color: var(--bunker-dark);
 }
 
 header h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    letter-spacing: 8px;
-    background: linear-gradient(135deg, #ff0000 0%, #ffffff 33%, #0066ff 66%, #ff0000 100%);
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, #ff0033 0%, #ff0033 25%, #ffffff 50%, #0055ff 75%, #ff0033 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))
-            drop-shadow(0 0 20px rgba(0, 102, 255, 0.3))
-            drop-shadow(0 0 30px rgba(255, 0, 0, 0.3));
-    margin-bottom: 10px;
+    filter: drop-shadow(1px 1px 0px #000)
+            drop-shadow(2px 2px 0px #000)
+            drop-shadow(3px 3px 0px #000)
+            drop-shadow(4px 4px 0px #000)
+            drop-shadow(5px 5px 0px #000)
+            drop-shadow(6px 6px 10px rgba(0, 0, 0, 0.8));
+    margin-top: 15px;
+    margin-bottom: 8px;
     position: relative;
 }
 
-/* Glitch Effect on Title */
+/* Glitch Effect on Title - DISABLED FOR NOW */
 .glitch {
     position: relative;
 }
 
+/* GLITCH HOVER EFFECT DISABLED
 .glitch:hover::before,
 .glitch:hover::after {
     content: attr(data-text);
@@ -103,7 +180,7 @@ header h1 {
 
 .glitch:hover::before {
     animation: glitch-1 0.3s infinite;
-    background: linear-gradient(135deg, #0066ff 0%, #ffffff 50%, #ff0000 100%);
+    background: linear-gradient(135deg, #0066ff 0%, #ffffff 50%, #cc0000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -112,7 +189,7 @@ header h1 {
 
 .glitch:hover::after {
     animation: glitch-2 0.3s infinite;
-    background: linear-gradient(135deg, #ff0000 0%, #ffffff 50%, #0066ff 100%);
+    background: linear-gradient(135deg, #cc0000 0%, #ffffff 50%, #0066ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -132,23 +209,75 @@ header h1 {
     50% { transform: translate(-2px, 2px); }
     75% { transform: translate(2px, 2px); }
 }
+*/
 
 .tagline {
     font-size: 1rem;
     color: var(--text-dim);
     letter-spacing: 3px;
     text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-/* Navigation */
+.header-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: 15px;
+}
+
+.header-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    border-right: 1px solid var(--metal-light);
+    position: relative;
+    text-shadow:
+        1px 1px 0px #000,
+        2px 2px 0px #000,
+        3px 3px 0px #000,
+        4px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-nav a:first-child {
+    border-left: 1px solid var(--metal-light);
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+    background-color: var(--bunker-gray);
+    color: var(--glow-green);
+    text-shadow:
+        1px 1px 0px #000,
+        2px 2px 0px #000,
+        3px 3px 0px #000,
+        4px 4px 5px rgba(0, 0, 0, 0.5),
+        0 0 15px var(--glow-green);
+}
+
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--glow-green);
+    transition: width 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+    width: 100%;
+}
+
+/* Navigation - OLD (HIDDEN) */
 nav {
-    background-color: var(--bunker-dark);
-    border-bottom: 1px solid var(--metal-light);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: none;
 }
 
 nav .container {
@@ -160,13 +289,18 @@ nav .container {
 nav a {
     color: var(--text-dim);
     text-decoration: none;
-    padding: 18px 30px;
-    font-size: 0.9rem;
+    padding: 12px 25px;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 2px;
     transition: all 0.3s ease;
     border-right: 1px solid var(--metal-light);
     position: relative;
+    text-shadow:
+        1px 1px 0px #000,
+        2px 2px 0px #000,
+        3px 3px 0px #000,
+        4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 nav a:first-child {
@@ -177,7 +311,12 @@ nav a:hover,
 nav a.active {
     background-color: var(--bunker-gray);
     color: var(--glow-green);
-    text-shadow: 0 0 10px var(--glow-green);
+    text-shadow:
+        1px 1px 0px #000,
+        2px 2px 0px #000,
+        3px 3px 0px #000,
+        4px 4px 5px rgba(0, 0, 0, 0.5),
+        0 0 15px var(--glow-green);
 }
 
 nav a::after {
@@ -198,21 +337,54 @@ nav a.active::after {
 
 /* Main Content */
 main {
-    padding: 60px 20px;
+    padding: 30px 20px;
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
-    margin-bottom: 80px;
-    padding: 40px;
-    background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+    margin-bottom: 40px;
+    padding: 25px;
+    background:
+        radial-gradient(ellipse 700px 350px at 50% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse 400px 200px at 70% 60%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.15) 48px,
+            rgba(0, 0, 0, 1) 50px,
+            rgba(0, 0, 0, 0.7) 52px,
+            transparent 52px,
+            transparent 100px
+        ),
+        repeating-linear-gradient(
+            135deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.15) 48px,
+            rgba(0, 0, 0, 1) 50px,
+            rgba(0, 0, 0, 0.7) 52px,
+            transparent 52px,
+            transparent 100px
+        ),
+        radial-gradient(ellipse at 35% 45%, rgba(35, 35, 35, 0.25) 0%, transparent 60%),
+        linear-gradient(135deg, #0f0f0f 0%, #070707 50%, #0f0f0f 100%);
     border: 1px solid var(--metal-light);
     border-radius: 4px;
     position: relative;
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.04),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.7),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.5),
+        0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 .broadcast-badge {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -223,7 +395,6 @@ main {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 2px;
-    margin-bottom: 30px;
     border: 1px solid var(--glow-red);
 }
 
@@ -248,17 +419,54 @@ main {
 
 .hero h2 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: var(--glow-amber);
-    margin-bottom: 30px;
-    text-shadow: 0 0 15px rgba(255, 149, 0, 0.5);
+    font-size: 1.3rem;
+    color: #f5f5f5;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 6px 20px;
+    position: relative;
+    z-index: 1;
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        -1px -1px 2px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.hero h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -15px;
+    right: -15px;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 3px,
+            transparent 3px,
+            transparent 8px
+        ),
+        radial-gradient(ellipse at 30% 40%, rgba(139, 90, 43, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(101, 67, 33, 0.2) 0%, transparent 60%),
+        linear-gradient(135deg, #8B5A2B 0%, #654321 30%, #5C4033 50%, #654321 70%, #8B5A2B 100%);
+    z-index: -1;
+    transform: skewX(-8deg);
+    border: 2px solid #4a3728;
+    box-shadow:
+        inset 0 2px 4px rgba(139, 90, 43, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+        0 4px 15px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(101, 67, 33, 0.4);
 }
 
 .intro {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text-primary);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -271,9 +479,9 @@ main {
 
 /* Buttons */
 .cta-buttons {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -346,45 +554,104 @@ section h3 {
     text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
+.latest-episode h3 {
+    font-size: 1.6rem;
+    color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.latest-episode h3::before,
+.latest-episode h3::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: var(--glow-red);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 10px var(--glow-red);
+}
+
 /* Episode Card */
 .episode-card {
-    background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-gray) 100%);
-    border: 1px solid var(--metal-light);
-    padding: 30px;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 0, 0, 0.02) 1px,
+            rgba(0, 0, 0, 0.02) 2px
+        ),
+        linear-gradient(135deg, #f5f5dc 0%, #faf8f3 50%, #f5f5dc 100%);
+    border: 1px solid #d4d0c8;
+    padding: 35px;
     display: flex;
     gap: 30px;
     align-items: flex-start;
     transition: all 0.3s ease;
+    margin-top: 30px;
+    box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.6),
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.episode-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.episode-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .episode-card:hover {
-    border-color: var(--glow-green);
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
-    transform: translateX(5px);
+    box-shadow:
+        0 12px 24px rgba(0, 0, 0, 0.7),
+        0 6px 12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .episode-number {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.5rem;
     font-weight: 900;
-    color: var(--metal-light);
+    color: #2a2a2a;
     min-width: 120px;
     text-align: center;
     padding: 20px;
-    border: 2px solid var(--metal-light);
-    background-color: var(--bunker-black);
+    border: 2px solid #8B5A2B;
+    background-color: #faf8f3;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .episode-content h4 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
-    color: var(--glow-amber);
+    color: #2a2a2a;
     margin-bottom: 10px;
 }
 
 .episode-meta {
     font-size: 0.85rem;
-    color: var(--text-dim);
+    color: #666;
     margin-bottom: 15px;
     letter-spacing: 1px;
 }
@@ -392,6 +659,7 @@ section h3 {
 .episode-content p {
     margin-bottom: 20px;
     line-height: 1.7;
+    color: #333;
 }
 
 /* Info Grid */
