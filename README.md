@@ -2,7 +2,7 @@
 
 **Where Truth Meets Fiction in the Digital Bunker**
 
-A satirical, personality-driven show and website exploring big tech, geopolitics, and recovery in the digital age through the persona of Casey Ryback—powered by AI and fueled by chaos.
+A satirical, personality-driven show and website exploring big tech, geopolitics, and recovery in the digital age through the persona of KC Ryback—powered by AI and fueled by chaos.
 
 ---
 
@@ -43,7 +43,7 @@ Written posts covering everything the audio can't. Raw thoughts. Cultural riffs.
 - **NotebookLM** - Google's AI deep dive generator (the secret weapon)
 - **HTML/CSS** - Pure, clean code. No bloated frameworks.
 - **GitHub** - Version control and transparency
-- **Casey's Brain** - The chaos engine
+- **KC's Brain** - The chaos engine
 
 ---
 
@@ -106,4 +106,4 @@ This is a work of creative commentary. Some elements are real. Some are fiction.
 
 ---
 
-**Built by Casey Ryback. Powered by NotebookLM. Fueled by chaos.**
+**Built by KC Ryback. Powered by NotebookLM. Fueled by chaos.**
