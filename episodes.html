@@ -10,7 +10,7 @@
     <div class="glitch-overlay"></div>
 
     <header>
-        <div class="version-badge">v5.0</div>
+        <div class="version-badge">v5.1</div>
         <div class="container">
             <h1 class="glitch" data-text="UNDERCOVER FALLOUT">UNDERCOVER FALLOUT</h1>
             <p class="tagline">Where Truth Meets Fiction in the Digital Age</p>
@@ -56,7 +56,10 @@
 
             <!-- Episode 2 -->
             <div class="episode-card">
-                <div class="episode-number">EP 002</div>
+                <div class="episode-number" id="playButton2">
+                    <div class="play-icon">▶</div>
+                    EP 002
+                </div>
                 <div class="episode-content">
                     <h4>75 Days till Digital Quicksand: The Coming Apocalypse</h4>
                     <p class="episode-meta">Runtime: 10:45 | Classification: PERSONAL | Date: Nov 2025</p>
@@ -71,7 +74,21 @@
                         <span class="tag">EXTORTION</span>
                         <span class="tag">RECOVERY</span>
                     </div>
-                    <a href="Episode-002-75-Days-till-Digital-Quicksand-The-Coming-Apocalypse.mp3" class="btn btn-listen" download>LISTEN NOW</a>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer2">
+                        <audio id="episodeAudio2" preload="metadata">
+                            <source src="Episode-002-75-Days-till-Digital-Quicksand-The-Coming-Apocalypse.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn2">▶</button>
+                            <div class="progress-container" id="progressContainer2">
+                                <div class="progress-bar" id="progressBar2"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay2">0:00 / 10:45</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -212,5 +229,74 @@
             }
         }
     </style>
+
+    <script>
+        // Audio Player Controls for Episode 2
+        const audio2 = document.getElementById('episodeAudio2');
+        const playButton2 = document.getElementById('playButton2');
+        const playPauseBtn2 = document.getElementById('playPauseBtn2');
+        const audioPlayer2 = document.getElementById('audioPlayer2');
+        const progressBar2 = document.getElementById('progressBar2');
+        const timeDisplay2 = document.getElementById('timeDisplay2');
+        const progressContainer2 = document.getElementById('progressContainer2');
+        const playIcon2 = playButton2.querySelector('.play-icon');
+
+        // Show player and start playing when EP 002 is clicked
+        playButton2.addEventListener('click', function() {
+            audioPlayer2.style.display = 'block';
+            if (audio2.paused) {
+                audio2.play();
+                playPauseBtn2.textContent = '⏸';
+                playIcon2.textContent = '⏸';
+                playButton2.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn2.addEventListener('click', function() {
+            if (audio2.paused) {
+                audio2.play();
+                playPauseBtn2.textContent = '⏸';
+                playIcon2.textContent = '⏸';
+                playButton2.classList.add('playing');
+            } else {
+                audio2.pause();
+                playPauseBtn2.textContent = '▶';
+                playIcon2.textContent = '▶';
+                playButton2.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio2.addEventListener('timeupdate', function() {
+            const progress = (audio2.currentTime / audio2.duration) * 100;
+            progressBar2.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio2.currentTime / 60);
+            const currentSeconds = Math.floor(audio2.currentTime % 60);
+            const durationMinutes = Math.floor(audio2.duration / 60);
+            const durationSeconds = Math.floor(audio2.duration % 60);
+
+            timeDisplay2.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        progressContainer2.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio2.currentTime = percentage * audio2.duration;
+        });
+
+        // Reset when audio ends
+        audio2.addEventListener('ended', function() {
+            playPauseBtn2.textContent = '▶';
+            playIcon2.textContent = '▶';
+            playButton2.classList.remove('playing');
+            progressBar2.style.width = '0%';
+        });
+    </script>
 </body>
 </html>
