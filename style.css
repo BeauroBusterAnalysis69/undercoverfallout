@@ -133,13 +133,33 @@ header {
 .version-badge {
     position: absolute;
     top: 10px;
-    right: 20px;
+    left: 20px;
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.8rem;
     color: var(--text-dim);
     padding: 5px 10px;
     border: 1px solid var(--metal-light);
     background-color: var(--bunker-dark);
+}
+
+.support-badge {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--glow-amber);
+    padding: 5px 10px;
+    border: 1px solid var(--glow-amber);
+    background-color: var(--bunker-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.support-badge:hover {
+    background-color: var(--glow-amber);
+    color: var(--bunker-black);
+    box-shadow: 0 0 15px rgba(255, 149, 0, 0.5);
 }
 
 header h1 {
