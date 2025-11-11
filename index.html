@@ -10,7 +10,7 @@
     <div class="glitch-overlay"></div>
 
     <header>
-        <div class="version-badge">v6.2</div>
+        <div class="version-badge">v7.0</div>
         <div class="broadcast-badge">
             <span class="pulse"></span>
             LIVE FROM THE BUNKER
@@ -100,6 +100,40 @@
                                 <div class="progress-bar" id="progressBar2"></div>
                             </div>
                             <span class="time-display" id="timeDisplay2">0:00 / 12:52</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Episode 3 -->
+            <div class="episode-card" style="margin-top: 30px;">
+                <div class="episode-number" id="playButton3">
+                    <div class="play-icon">▶</div>
+                    EP 003
+                </div>
+                <div class="episode-content">
+                    <h4>$75,000, The Doctor, and Systematic Theft</h4>
+                    <p class="episode-meta">Runtime: 15:28 | Classification: PERSONAL | Date: Nov 2025</p>
+                    <p>
+                        Seventy-five thousand dollars. February 2024. A home equity loan while high on cocaine, meth,
+                        and ecstasy. Then comes the "doctor" - former physician with the purest cocaine. Fifty thousand
+                        gone in twenty-four hours. ATM transactions you don't remember. Loan payments bouncing, then
+                        drained through Venmo, Zelle, PayPal. This isn't random - it's systematic theft by a coordinated
+                        network. And the gangs haven't even shown up yet.
+                    </p>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer3">
+                        <audio id="episodeAudio3" preload="metadata">
+                            <source src="Episode-003-75000-The-Doctor-and-Systematic-Theft.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn3">▶</button>
+                            <div class="progress-container" id="progressContainer3">
+                                <div class="progress-bar" id="progressBar3"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay3">0:00 / 15:28</span>
                         </div>
                     </div>
                 </div>
@@ -268,6 +302,73 @@
             playIcon2.textContent = '▶';
             playButton2.classList.remove('playing');
             progressBar2.style.width = '0%';
+        });
+
+        // Audio Player Controls for Episode 3
+        const audio3 = document.getElementById('episodeAudio3');
+        const playButton3 = document.getElementById('playButton3');
+        const playPauseBtn3 = document.getElementById('playPauseBtn3');
+        const audioPlayer3 = document.getElementById('audioPlayer3');
+        const progressBar3 = document.getElementById('progressBar3');
+        const timeDisplay3 = document.getElementById('timeDisplay3');
+        const progressContainer3 = document.getElementById('progressContainer3');
+        const playIcon3 = playButton3.querySelector('.play-icon');
+
+        // Show player and start playing when EP 003 is clicked
+        playButton3.addEventListener('click', function() {
+            audioPlayer3.style.display = 'block';
+            if (audio3.paused) {
+                audio3.play();
+                playPauseBtn3.textContent = '⏸';
+                playIcon3.textContent = '⏸';
+                playButton3.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn3.addEventListener('click', function() {
+            if (audio3.paused) {
+                audio3.play();
+                playPauseBtn3.textContent = '⏸';
+                playIcon3.textContent = '⏸';
+                playButton3.classList.add('playing');
+            } else {
+                audio3.pause();
+                playPauseBtn3.textContent = '▶';
+                playIcon3.textContent = '▶';
+                playButton3.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio3.addEventListener('timeupdate', function() {
+            const progress = (audio3.currentTime / audio3.duration) * 100;
+            progressBar3.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio3.currentTime / 60);
+            const currentSeconds = Math.floor(audio3.currentTime % 60);
+            const durationMinutes = Math.floor(audio3.duration / 60);
+            const durationSeconds = Math.floor(audio3.duration % 60);
+
+            timeDisplay3.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        progressContainer3.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio3.currentTime = percentage * audio3.duration;
+        });
+
+        // Reset when audio ends
+        audio3.addEventListener('ended', function() {
+            playPauseBtn3.textContent = '▶';
+            playIcon3.textContent = '▶';
+            playButton3.classList.remove('playing');
+            progressBar3.style.width = '0%';
         });
     </script>
 </body>
