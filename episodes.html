@@ -10,7 +10,7 @@
     <div class="glitch-overlay"></div>
 
     <header>
-        <div class="version-badge">v5.1</div>
+        <div class="version-badge">v5.2</div>
         <div class="container">
             <h1 class="glitch" data-text="UNDERCOVER FALLOUT">UNDERCOVER FALLOUT</h1>
             <p class="tagline">Where Truth Meets Fiction in the Digital Age</p>
@@ -35,10 +35,13 @@
         <section class="episodes-list">
             <!-- Episode 1 -->
             <div class="episode-card">
-                <div class="episode-number">EP 001</div>
+                <div class="episode-number" id="playButton1">
+                    <div class="play-icon">▶</div>
+                    EP 001
+                </div>
                 <div class="episode-content">
-                    <h4>The System is Rigged (And We're All Playing Along)</h4>
-                    <p class="episode-meta">Runtime: 15:32 | Classification: UNCLASSIFIED | Date: TBD</p>
+                    <h4>Hacked iPhones, Federal Spies, and a Murder</h4>
+                    <p class="episode-meta">Runtime: 13:18 | Classification: UNCLASSIFIED | Date: Nov 2025</p>
                     <p>
                         Welcome to the bunker. In this inaugural episode, KC breaks down why 2024
                         feels like a simulation, how the fraudsters won, and why NotebookLM might be
@@ -50,7 +53,21 @@
                         <span class="tag">FRAUD</span>
                         <span class="tag">RECOVERY</span>
                     </div>
-                    <a href="#" class="btn btn-listen">LISTEN NOW</a>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer1">
+                        <audio id="episodeAudio1" preload="metadata">
+                            <source src="Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn1">▶</button>
+                            <div class="progress-container" id="progressContainer1">
+                                <div class="progress-bar" id="progressBar1"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay1">0:00 / 13:18</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -231,6 +248,73 @@
     </style>
 
     <script>
+        // Audio Player Controls for Episode 1
+        const audio1 = document.getElementById('episodeAudio1');
+        const playButton1 = document.getElementById('playButton1');
+        const playPauseBtn1 = document.getElementById('playPauseBtn1');
+        const audioPlayer1 = document.getElementById('audioPlayer1');
+        const progressBar1 = document.getElementById('progressBar1');
+        const timeDisplay1 = document.getElementById('timeDisplay1');
+        const progressContainer1 = document.getElementById('progressContainer1');
+        const playIcon1 = playButton1.querySelector('.play-icon');
+
+        // Show player and start playing when EP 001 is clicked
+        playButton1.addEventListener('click', function() {
+            audioPlayer1.style.display = 'block';
+            if (audio1.paused) {
+                audio1.play();
+                playPauseBtn1.textContent = '⏸';
+                playIcon1.textContent = '⏸';
+                playButton1.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn1.addEventListener('click', function() {
+            if (audio1.paused) {
+                audio1.play();
+                playPauseBtn1.textContent = '⏸';
+                playIcon1.textContent = '⏸';
+                playButton1.classList.add('playing');
+            } else {
+                audio1.pause();
+                playPauseBtn1.textContent = '▶';
+                playIcon1.textContent = '▶';
+                playButton1.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio1.addEventListener('timeupdate', function() {
+            const progress = (audio1.currentTime / audio1.duration) * 100;
+            progressBar1.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio1.currentTime / 60);
+            const currentSeconds = Math.floor(audio1.currentTime % 60);
+            const durationMinutes = Math.floor(audio1.duration / 60);
+            const durationSeconds = Math.floor(audio1.duration % 60);
+
+            timeDisplay1.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        progressContainer1.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio1.currentTime = percentage * audio1.duration;
+        });
+
+        // Reset when audio ends
+        audio1.addEventListener('ended', function() {
+            playPauseBtn1.textContent = '▶';
+            playIcon1.textContent = '▶';
+            playButton1.classList.remove('playing');
+            progressBar1.style.width = '0%';
+        });
+
         // Audio Player Controls for Episode 2
         const audio2 = document.getElementById('episodeAudio2');
         const playButton2 = document.getElementById('playButton2');
