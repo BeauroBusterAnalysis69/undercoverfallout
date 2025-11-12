@@ -865,17 +865,17 @@ footer p {
 /* Declassified Alert Banner */
 .declassified-alert {
     background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #1a0000 100%);
-    border: 3px solid var(--glow-red);
-    border-radius: 6px;
-    padding: 18px 25px;
-    margin: 30px auto;
-    max-width: 750px;
+    border: 2px solid var(--glow-red);
+    border-radius: 5px;
+    padding: 13px 19px;
+    margin: 25px auto;
+    max-width: 560px;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 13px;
     box-shadow:
-        0 0 20px rgba(255, 0, 0, 0.3),
-        0 8px 16px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(255, 0, 0, 0.3),
+        0 6px 12px rgba(0, 0, 0, 0.6),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
@@ -898,8 +898,8 @@ footer p {
 }
 
 .alert-icon {
-    font-size: 2.5rem;
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+    font-size: 1.9rem;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 .alert-content {
@@ -908,29 +908,29 @@ footer p {
 
 .alert-content h3 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.25rem;
-    color: var(--glow-red);
-    margin: 0 0 6px 0;
-    letter-spacing: 2px;
+    font-size: 0.95rem;
+    color: #ff0000 !important;
+    margin: 0 0 5px 0;
+    letter-spacing: 1.5px;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
 .alert-content p {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.57rem;
     color: var(--text-dim);
     margin: 0;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .alert-stamp {
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     color: var(--glow-red);
     border: 2px solid var(--glow-red);
-    padding: 6px 12px;
-    border-radius: 4px;
-    letter-spacing: 2px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    letter-spacing: 1.5px;
     font-weight: 700;
     transform: rotate(-5deg);
     text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
