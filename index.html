@@ -162,6 +162,42 @@
                 </div>
             </div>
 
+            <!-- Episode 4 -->
+            <div class="episode-card" style="margin-top: 30px;">
+                <div class="episode-number" id="playButton4">
+                    <div class="play-icon">▶</div>
+                    EP 004
+                </div>
+                <div class="episode-content">
+                    <h4>Neighborhood Girl Energy, Tear Gas, and MS-13</h4>
+                    <p class="episode-meta">Runtime: 13:26 | Classification: PERSONAL | Date: Nov 2025</p>
+                    <p>
+                        The episode chronicles a home invasion attempt by men later confirmed to be affiliated with
+                        MS-13 gang—one of whom is Rufus's friend. A profound, almost tragic strategic choice.
+                        Then new women arrive, providing a warm "neighborhood girl energy" vibe. But nothing is as
+                        it seems when you're caught between gangs, extortion, and the slow descent into paranoia.
+                    </p>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer4">
+                        <audio id="episodeAudio4" preload="metadata">
+                            <source src="Episode-004-Neighborhood-Girl-Energy-Tear-Gas-and-MS-13.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn4">▶</button>
+                            <div class="progress-container" id="progressContainer4">
+                                <div class="progress-bar" id="progressBar4"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay4">0:00 / 13:26</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="episode-cover">
+                    <img src="episode-004-cover.png" alt="Episode 4 Cover">
+                </div>
+            </div>
+
             <div class="cta-buttons">
                 <a href="mission.html" class="btn btn-secondary">READ THE MANIFESTO</a>
                 <a href="https://buymeacoffee.com/kcryback" target="_blank" class="btn btn-primary">SUPPORT THE PROJECT</a>
@@ -396,6 +432,73 @@
             playIcon3.textContent = '▶';
             playButton3.classList.remove('playing');
             progressBar3.style.width = '0%';
+        });
+
+        // Audio Player Controls for Episode 4
+        const audio4 = document.getElementById('episodeAudio4');
+        const playButton4 = document.getElementById('playButton4');
+        const playPauseBtn4 = document.getElementById('playPauseBtn4');
+        const audioPlayer4 = document.getElementById('audioPlayer4');
+        const progressBar4 = document.getElementById('progressBar4');
+        const timeDisplay4 = document.getElementById('timeDisplay4');
+        const progressContainer4 = document.getElementById('progressContainer4');
+        const playIcon4 = playButton4.querySelector('.play-icon');
+
+        // Show player and start playing when EP 004 is clicked
+        playButton4.addEventListener('click', function() {
+            audioPlayer4.style.display = 'block';
+            if (audio4.paused) {
+                audio4.play();
+                playPauseBtn4.textContent = '⏸';
+                playIcon4.textContent = '⏸';
+                playButton4.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn4.addEventListener('click', function() {
+            if (audio4.paused) {
+                audio4.play();
+                playPauseBtn4.textContent = '⏸';
+                playIcon4.textContent = '⏸';
+                playButton4.classList.add('playing');
+            } else {
+                audio4.pause();
+                playPauseBtn4.textContent = '▶';
+                playIcon4.textContent = '▶';
+                playButton4.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio4.addEventListener('timeupdate', function() {
+            const progress = (audio4.currentTime / audio4.duration) * 100;
+            progressBar4.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio4.currentTime / 60);
+            const currentSeconds = Math.floor(audio4.currentTime % 60);
+            const durationMinutes = Math.floor(audio4.duration / 60);
+            const durationSeconds = Math.floor(audio4.duration % 60);
+
+            timeDisplay4.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        progressContainer4.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio4.currentTime = percentage * audio4.duration;
+        });
+
+        // Reset when audio ends
+        audio4.addEventListener('ended', function() {
+            playPauseBtn4.textContent = '▶';
+            playIcon4.textContent = '▶';
+            playButton4.classList.remove('playing');
+            progressBar4.style.width = '0%';
         });
     </script>
 </body>
