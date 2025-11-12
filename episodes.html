@@ -20,7 +20,7 @@
     <div class="glitch-overlay"></div>
 
     <header>
-        <div class="version-badge">v7.5</div>
+        <div class="version-badge">v7.6</div>
         <a href="https://buymeacoffee.com/kcryback" target="_blank" class="support-badge">
             ☕ SUPPORT
         </a>
@@ -46,6 +46,16 @@
             </p>
         </section>
 
+        <!-- Declassified Alert Banner -->
+        <div class="declassified-alert">
+            <div class="alert-icon">🔓</div>
+            <div class="alert-content">
+                <h3>TOP SECRET FILES DECLASSIFIED</h3>
+                <p>EPISODES 001-004 NOW AVAILABLE • SCROLL DOWN FOR FULL ARCHIVE • CLEARANCE LEVEL: PUBLIC</p>
+            </div>
+            <div class="alert-stamp">UNCLASSIFIED</div>
+        </div>
+
         <section class="episodes-list">
             <!-- Episode 1 -->
             <div class="episode-card">
@@ -55,7 +65,7 @@
                 </div>
                 <div class="episode-content">
                     <h4>Hacked iPhones, Federal Spies, and a Murder</h4>
-                    <p class="episode-meta">Runtime: 13:18 | Classification: UNCLASSIFIED | Date: Nov 2025</p>
+                    <p class="episode-meta">Runtime: 13:18 | UNCLASSIFIED AS OF 11/10/2025</p>
                     <p>
                         Welcome to the bunker. In this inaugural episode, KC breaks down why 2024
                         feels like a simulation, how the fraudsters won, and why NotebookLM might be
@@ -83,6 +93,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="episode-cover">
+                    <img src="episode-001-cover.jpg" alt="Episode 1 Cover">
+                </div>
             </div>
 
             <!-- Episode 2 -->
@@ -93,7 +106,7 @@
                 </div>
                 <div class="episode-content">
                     <h4>75 Days till Digital Quicksand: The Coming Apocalypse</h4>
-                    <p class="episode-meta">Runtime: 12:52 | Classification: PERSONAL | Date: Nov 2025</p>
+                    <p class="episode-meta">Runtime: 12:52 | UNCLASSIFIED AS OF 11/11/2025</p>
                     <p>
                         The countdown begins. KC traces 75 days of descent—from loneliness and relapse
                         to exploitation and extortion. This is the buildup to 2024's chaos: how vulnerability
@@ -121,6 +134,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="episode-cover">
+                    <img src="episode-002-cover.jpg" alt="Episode 2 Cover">
+                </div>
             </div>
 
             <!-- Episode 3 -->
@@ -131,7 +147,7 @@
                 </div>
                 <div class="episode-content">
                     <h4>$75,000, The Doctor, and Systematic Theft</h4>
-                    <p class="episode-meta">Runtime: 15:28 | Classification: PERSONAL | Date: Nov 2025</p>
+                    <p class="episode-meta">Runtime: 15:28 | UNCLASSIFIED AS OF 11/11/2025</p>
                     <p>
                         Seventy-five thousand dollars. February 2024. A home equity loan while high on cocaine, meth,
                         and ecstasy. Then comes the "doctor" - former physician with the purest cocaine. Fifty thousand
@@ -159,6 +175,50 @@
                             <span class="time-display" id="timeDisplay3">0:00 / 15:28</span>
                         </div>
                     </div>
+                </div>
+                <div class="episode-cover">
+                    <img src="episode-003-cover.jpg" alt="Episode 3 Cover">
+                </div>
+            </div>
+
+            <!-- Episode 4 -->
+            <div class="episode-card">
+                <div class="episode-number" id="playButton4">
+                    <div class="play-icon">▶</div>
+                    EP 004
+                </div>
+                <div class="episode-content">
+                    <h4>Neighborhood Girl Energy, Tear Gas, and MS-13</h4>
+                    <p class="episode-meta">Runtime: 13:26 | UNCLASSIFIED AS OF 11/12/2025</p>
+                    <p>
+                        The episode chronicles a home invasion attempt by men later confirmed to be affiliated with
+                        MS-13 gang—one of whom is Rufus's friend. A profound, almost tragic strategic choice.
+                        Then new women arrive, providing a warm "neighborhood girl energy" vibe. But nothing is as
+                        it seems when you're caught between gangs, extortion, and the slow descent into paranoia.
+                    </p>
+                    <div class="episode-tags">
+                        <span class="tag">PERSONAL</span>
+                        <span class="tag">GANG</span>
+                        <span class="tag">EXTORTION</span>
+                    </div>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer4">
+                        <audio id="episodeAudio4" preload="metadata">
+                            <source src="Episode-004-Neighborhood-Girl-Energy-Tear-Gas-and-MS-13.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn4">▶</button>
+                            <div class="progress-container" id="progressContainer4">
+                                <div class="progress-bar" id="progressBar4"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay4">0:00 / 13:26</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="episode-cover">
+                    <img src="episode-004-cover.jpg" alt="Episode 4 Cover">
                 </div>
             </div>
         </section>
@@ -211,6 +271,80 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
+        }
+
+        /* Declassified Alert Banner */
+        .declassified-alert {
+            background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #1a0000 100%);
+            border: 3px solid var(--glow-red);
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 40px auto;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow:
+                0 0 20px rgba(255, 0, 0, 0.3),
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .declassified-alert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            animation: scan 3s infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .alert-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--glow-red);
+            margin: 0 0 8px 0;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .alert-content p {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .alert-stamp {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--glow-red);
+            border: 2px solid var(--glow-red);
+            padding: 8px 15px;
+            border-radius: 4px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transform: rotate(-5deg);
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
         }
 
         .episodes-list {
@@ -483,6 +617,73 @@
             playIcon3.textContent = '▶';
             playButton3.classList.remove('playing');
             progressBar3.style.width = '0%';
+        });
+
+        // Audio Player Controls for Episode 4
+        const audio4 = document.getElementById('episodeAudio4');
+        const playButton4 = document.getElementById('playButton4');
+        const playPauseBtn4 = document.getElementById('playPauseBtn4');
+        const audioPlayer4 = document.getElementById('audioPlayer4');
+        const progressBar4 = document.getElementById('progressBar4');
+        const timeDisplay4 = document.getElementById('timeDisplay4');
+        const progressContainer4 = document.getElementById('progressContainer4');
+        const playIcon4 = playButton4.querySelector('.play-icon');
+
+        // Show player and start playing when EP 004 is clicked
+        playButton4.addEventListener('click', function() {
+            audioPlayer4.style.display = 'block';
+            if (audio4.paused) {
+                audio4.play();
+                playPauseBtn4.textContent = '⏸';
+                playIcon4.textContent = '⏸';
+                playButton4.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn4.addEventListener('click', function() {
+            if (audio4.paused) {
+                audio4.play();
+                playPauseBtn4.textContent = '⏸';
+                playIcon4.textContent = '⏸';
+                playButton4.classList.add('playing');
+            } else {
+                audio4.pause();
+                playPauseBtn4.textContent = '▶';
+                playIcon4.textContent = '▶';
+                playButton4.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio4.addEventListener('timeupdate', function() {
+            const progress = (audio4.currentTime / audio4.duration) * 100;
+            progressBar4.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio4.currentTime / 60);
+            const currentSeconds = Math.floor(audio4.currentTime % 60);
+            const durationMinutes = Math.floor(audio4.duration / 60);
+            const durationSeconds = Math.floor(audio4.duration % 60);
+
+            timeDisplay4.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        progressContainer4.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio4.currentTime = percentage * audio4.duration;
+        });
+
+        // Reset when audio ends
+        audio4.addEventListener('ended', function() {
+            playPauseBtn4.textContent = '▶';
+            playIcon4.textContent = '▶';
+            playButton4.classList.remove('playing');
+            progressBar4.style.width = '0%';
         });
     </script>
 </body>
