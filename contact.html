@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEHSCTH0GJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GEHSCTH0GJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | UNDERCOVER FALLOUT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+
+    <header>
+        <div class="version-badge">v7.2</div>
+        <a href="https://buymeacoffee.com/kcryback" target="_blank" class="support-badge">
+            ☕ SUPPORT
+        </a>
+        <div class="broadcast-badge">
+            <span class="pulse"></span>
+            SUPPORT THE BUNKER
+        </div>
+        <div class="container">
+            <h1 class="glitch" data-text="UNDERCOVER FALLOUT">UNDERCOVER FALLOUT</h1>
+            <p class="tagline">Where Truth Meets Fiction in the Digital Age</p>
+            <nav class="header-nav">
+                <a href="index.html">HOME</a>
+                <a href="episodes.html">EPISODES</a>
+                <a href="commentary.html">COMMENTARY</a>
+                <a href="mission.html">THE MISSION</a>
+                <a href="contact.html" class="active">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page-header">
+            <h2>SEND A TRANSMISSION</h2>
+            <p class="page-intro">
+                Got a story? Questions? Tips from the field? Send an encrypted message to the bunker.
+                All transmissions are monitored. Response time: classified.
+            </p>
+        </section>
+
+        <section class="contact-section">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Call Sign (Name)</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Secure Channel (Email)</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@domain.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Transmission Type</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">-- Select Type --</option>
+                        <option value="question">General Question</option>
+                        <option value="story">Share My Story</option>
+                        <option value="tip">Field Intelligence / Tip</option>
+                        <option value="media">Media / Press Inquiry</option>
+                        <option value="support">Support / Technical Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="8" required placeholder="Your message to the bunker..."></textarea>
+                </div>
+
+                <div class="form-disclaimer">
+                    <p>
+                        ⚠️ <strong>DISCLAIMER:</strong> This is a creative commentary project. Some elements are real, some are fiction.
+                        By submitting this form, you understand that responses may be delayed, theatrical, or nonexistent.
+                    </p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">SEND TRANSMISSION →</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>OTHER CHANNELS</h3>
+                <div class="channel-links">
+                    <a href="https://buymeacoffee.com/kcryback" target="_blank" class="channel-link">
+                        <span class="channel-icon">☕</span>
+                        <span class="channel-text">Support on Buy Me a Coffee</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 UNDERCOVER FALLOUT | Broadcasting from an undisclosed location</p>
+            <p class="disclaimer">This is a work of creative commentary. Some elements are real. Some are fiction. Good luck figuring out which is which.</p>
+            <p style="margin-top: 20px;">
+                <a href="https://buymeacoffee.com/kcryback" target="_blank" style="color: var(--glow-amber); text-decoration: none; font-weight: 700;">☕ Support the Project</a>
+            </p>
+        </div>
+    </footer>
+
+    <style>
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+            border: 1px solid var(--metal-light);
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--glow-green);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--bunker-gray);
+            border: 1px solid var(--metal-light);
+            color: var(--text-primary);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--glow-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-disclaimer {
+            background-color: var(--bunker-gray);
+            border-left: 3px solid var(--glow-amber);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-disclaimer p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--bunker-dark) 0%, var(--bunker-black) 100%);
+            border: 1px solid var(--metal-light);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--glow-amber);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .channel-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .channel-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 30px;
+            background-color: var(--bunker-gray);
+            border: 1px solid var(--metal-light);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 300px;
+        }
+
+        .channel-link:hover {
+            border-color: var(--glow-amber);
+            box-shadow: 0 0 20px rgba(255, 149, 0, 0.3);
+            transform: translateX(5px);
+        }
+
+        .channel-icon {
+            font-size: 1.5rem;
+        }
+
+        .channel-text {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px 25px;
+            }
+
+            .channel-link {
+                min-width: 100%;
+            }
+        }
+    </style>
+</body>
+</html>
