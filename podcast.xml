@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:atom="http://www.w3.org/2005/Atom">
+
+    <channel>
+        <title>Undercover Fallout</title>
+        <link>https://undercoverfallout.com</link>
+        <language>en-us</language>
+        <copyright>2025 KC Ryback</copyright>
+        <atom:link href="https://undercoverfallout.com/podcast.xml" rel="self" type="application/rss+xml"/>
+
+        <description>Where Truth Meets Fiction in the Digital Age. KC Ryback breaks down the chaos of 2024 - fraud, federal agencies, systematic theft, and the digital fallout. Half analysis, half speculation, fully powered by AI. Field reports from the bunker.</description>
+
+        <itunes:author>KC Ryback</itunes:author>
+        <itunes:summary>Where Truth Meets Fiction in the Digital Age. KC Ryback breaks down the chaos of 2024 - fraud, federal agencies, systematic theft, and the digital fallout. Half analysis, half speculation, fully powered by AI. Field reports from the bunker.</itunes:summary>
+        <itunes:owner>
+            <itunes:name>KC Ryback</itunes:name>
+            <itunes:email>contact@undercoverfallout.com</itunes:email>
+        </itunes:owner>
+
+        <!-- REPLACE THIS WITH YOUR ACTUAL COVER ART URL (3000x3000px recommended) -->
+        <itunes:image href="https://undercoverfallout.com/podcast-cover.jpg"/>
+        <image>
+            <url>https://undercoverfallout.com/podcast-cover.jpg</url>
+            <title>Undercover Fallout</title>
+            <link>https://undercoverfallout.com</link>
+        </image>
+
+        <itunes:category text="Society &amp; Culture">
+            <itunes:category text="Documentary"/>
+        </itunes:category>
+        <itunes:category text="True Crime"/>
+
+        <itunes:explicit>yes</itunes:explicit>
+        <itunes:type>episodic</itunes:type>
+
+        <!-- Episode 3 -->
+        <item>
+            <title>Episode 003: $75,000, The Doctor, and Systematic Theft</title>
+            <link>https://undercoverfallout.com/index.html#ep003</link>
+            <pubDate>Mon, 11 Nov 2025 00:00:00 GMT</pubDate>
+            <description>Seventy-five thousand dollars. February 2024. A home equity loan while high on cocaine, meth, and ecstasy. Then comes the "doctor" - former physician with the purest cocaine. Fifty thousand gone in twenty-four hours. ATM transactions you don't remember. Loan payments bouncing, then drained through Venmo, Zelle, PayPal. This isn't random - it's systematic theft by a coordinated network. And the gangs haven't even shown up yet.</description>
+
+            <enclosure url="https://undercoverfallout.com/Episode-003-75000-The-Doctor-and-Systematic-Theft.mp3" type="audio/mpeg" length="22272000"/>
+
+            <guid isPermaLink="false">undercover-fallout-ep003</guid>
+            <itunes:title>$75,000, The Doctor, and Systematic Theft</itunes:title>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>3</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <itunes:explicit>yes</itunes:explicit>
+            <itunes:duration>928</itunes:duration>
+            <itunes:summary>Seventy-five thousand dollars. February 2024. A home equity loan while high on cocaine, meth, and ecstasy. Then comes the "doctor" - former physician with the purest cocaine. Fifty thousand gone in twenty-four hours. ATM transactions you don't remember. Loan payments bouncing, then drained through Venmo, Zelle, PayPal. This isn't random - it's systematic theft by a coordinated network. And the gangs haven't even shown up yet.</itunes:summary>
+        </item>
+
+        <!-- Episode 2 -->
+        <item>
+            <title>Episode 002: 75 Days till Digital Quicksand - The Coming Apocalypse</title>
+            <link>https://undercoverfallout.com/index.html#ep002</link>
+            <pubDate>Sun, 10 Nov 2025 00:00:00 GMT</pubDate>
+            <description>The countdown begins. KC traces 75 days of descent—from loneliness and relapse to exploitation and extortion. This is the buildup to 2024's chaos: how vulnerability became a weapon, how isolation became a trap, and how it all led to digital quicksand. The house hasn't sold yet. But the walls are closing in.</description>
+
+            <enclosure url="https://undercoverfallout.com/Episode-002-75-Days-till-Digital-Quicksand-The-Coming-Apocalypse.mp3" type="audio/mpeg" length="18432000"/>
+
+            <guid isPermaLink="false">undercover-fallout-ep002</guid>
+            <itunes:title>75 Days till Digital Quicksand - The Coming Apocalypse</itunes:title>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>2</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <itunes:explicit>yes</itunes:explicit>
+            <itunes:duration>772</itunes:duration>
+            <itunes:summary>The countdown begins. KC traces 75 days of descent—from loneliness and relapse to exploitation and extortion. This is the buildup to 2024's chaos: how vulnerability became a weapon, how isolation became a trap, and how it all led to digital quicksand. The house hasn't sold yet. But the walls are closing in.</itunes:summary>
+        </item>
+
+        <!-- Episode 1 -->
+        <item>
+            <title>Episode 001: Hacked iPhones, Federal Spies, and a Murder</title>
+            <link>https://undercoverfallout.com/index.html#ep001</link>
+            <pubDate>Sat, 09 Nov 2025 00:00:00 GMT</pubDate>
+            <description>Welcome to the bunker. In this inaugural episode, KC breaks down why 2024 feels like a simulation, how the fraudsters won, and why NotebookLM might be the only honest voice left in media.</description>
+
+            <enclosure url="https://undercoverfallout.com/Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3" type="audio/mpeg" length="19008000"/>
+
+            <guid isPermaLink="false">undercover-fallout-ep001</guid>
+            <itunes:title>Hacked iPhones, Federal Spies, and a Murder</itunes:title>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>1</itunes:episode>
+            <itunes:season>1</itunes:season>
+            <itunes:explicit>yes</itunes:explicit>
+            <itunes:duration>798</itunes:duration>
+            <itunes:summary>Welcome to the bunker. In this inaugural episode, KC breaks down why 2024 feels like a simulation, how the fraudsters won, and why NotebookLM might be the only honest voice left in media.</itunes:summary>
+        </item>
+
+    </channel>
+</rss>
