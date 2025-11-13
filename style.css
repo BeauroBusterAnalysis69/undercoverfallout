@@ -899,6 +899,419 @@ section h3 {
     line-height: 1.7;
 }
 
+/* SPY-THEMED VISUAL EFFECTS */
+
+/* 3D Parallax Depth Layers */
+.parallax-layer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.parallax-layer-1 {
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 65, 0.03) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(255, 149, 0, 0.02) 0%, transparent 30%);
+    animation: parallaxFloat1 20s ease-in-out infinite;
+}
+
+.parallax-layer-2 {
+    background:
+        radial-gradient(circle at 60% 40%, rgba(255, 0, 51, 0.02) 0%, transparent 25%),
+        radial-gradient(circle at 30% 80%, rgba(0, 85, 255, 0.02) 0%, transparent 25%);
+    animation: parallaxFloat2 25s ease-in-out infinite;
+}
+
+@keyframes parallaxFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -30px) scale(1.05); }
+}
+
+@keyframes parallaxFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 20px) scale(1.08); }
+}
+
+/* Radar Sweep Scanner */
+.radar-scanner {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(0, 255, 65, 0.3);
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.5;
+}
+
+.radar-scanner::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 255, 65, 0.8), transparent);
+    transform-origin: bottom center;
+    animation: radarSweep 4s linear infinite;
+}
+
+.radar-scanner::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--glow-green);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--glow-green);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes radarSweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Static Interference Overlay */
+.static-interference {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>');
+    pointer-events: none;
+    z-index: 9997;
+    opacity: 0;
+    animation: staticPulse 8s ease-in-out infinite;
+}
+
+@keyframes staticPulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.08; }
+}
+
+/* Holographic Card Borders */
+.holographic-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic-border::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(0, 255, 65, 0.3) 45deg,
+        rgba(255, 149, 0, 0.3) 90deg,
+        rgba(255, 0, 51, 0.3) 135deg,
+        rgba(0, 85, 255, 0.3) 180deg,
+        rgba(0, 255, 65, 0.3) 225deg,
+        rgba(255, 149, 0, 0.3) 270deg,
+        rgba(255, 0, 51, 0.3) 315deg,
+        transparent 360deg
+    );
+    animation: holoRotate 8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.holographic-border:hover::before {
+    opacity: 0.6;
+}
+
+@keyframes holoRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Signal Wave Animation */
+.signal-waves {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.signal-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 10px,
+        rgba(0, 255, 65, 0.1) 10px,
+        rgba(0, 255, 65, 0.1) 11px
+    );
+    animation: signalWaveScroll 3s linear infinite;
+}
+
+.signal-wave:nth-child(2) {
+    animation-duration: 4.5s;
+    animation-direction: reverse;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 15px,
+        rgba(255, 149, 0, 0.08) 15px,
+        rgba(255, 149, 0, 0.08) 16px
+    );
+}
+
+@keyframes signalWaveScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
+}
+
+/* Glitch Data Stream */
+.data-stream {
+    position: fixed;
+    top: 0;
+    right: 5%;
+    width: 2px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9996;
+    opacity: 0.4;
+}
+
+.data-stream::before,
+.data-stream::after {
+    content: 'ENCRYPTED CLASSIFIED SIGNAL INTERCEPT SURVEILLANCE';
+    position: absolute;
+    width: 20px;
+    font-size: 8px;
+    color: var(--glow-green);
+    word-break: break-all;
+    line-height: 1.2;
+    text-shadow: 0 0 5px var(--glow-green);
+    animation: dataFall 10s linear infinite;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 2px;
+}
+
+.data-stream::after {
+    animation-delay: 5s;
+    color: var(--glow-amber);
+    text-shadow: 0 0 5px var(--glow-amber);
+    right: -15px;
+}
+
+@keyframes dataFall {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Multiple data streams */
+.data-stream-2 {
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.data-stream-3 {
+    right: 85%;
+    animation-delay: 7s;
+}
+
+/* Particle Field Background */
+@keyframes particleFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: var(--glow-green);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 4px var(--glow-green);
+    animation: particleFloat 15s ease-in-out infinite;
+}
+
+.particle:nth-child(odd) {
+    background: var(--glow-amber);
+    box-shadow: 0 0 4px var(--glow-amber);
+    animation-duration: 12s;
+}
+
+/* Scanning Line Effect */
+.scan-line {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 255, 65, 0.5),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 9998;
+    animation: scanLineMove 6s linear infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+}
+
+@keyframes scanLineMove {
+    0% { top: -10px; }
+    100% { top: 110%; }
+}
+
+/* Typing Effect for Headers */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typing-effect {
+    overflow: hidden;
+    border-right: 3px solid var(--glow-green);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation:
+        typing 3s steps(40, end),
+        blink 0.75s step-end infinite;
+    display: inline-block;
+}
+
+/* Hexagonal Grid Background */
+.hex-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.03;
+    background-image:
+        linear-gradient(30deg, transparent 49%, var(--glow-green) 49%, var(--glow-green) 51%, transparent 51%),
+        linear-gradient(90deg, transparent 49%, var(--glow-green) 49%, var(--glow-green) 51%, transparent 51%),
+        linear-gradient(150deg, transparent 49%, var(--glow-green) 49%, var(--glow-green) 51%, transparent 51%);
+    background-size: 60px 104px;
+    animation: hexPulse 10s ease-in-out infinite;
+}
+
+@keyframes hexPulse {
+    0%, 100% { opacity: 0.03; }
+    50% { opacity: 0.06; }
+}
+
+/* Encrypted Text Effect on Hover */
+.encrypted-hover {
+    transition: all 0.3s ease;
+}
+
+.encrypted-hover:hover {
+    animation: textGlitch 0.3s ease-in-out;
+}
+
+@keyframes textGlitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); text-shadow: 2px -2px var(--glow-green); }
+    40% { transform: translate(-2px, -2px); text-shadow: -2px 2px var(--glow-red); }
+    60% { transform: translate(2px, 2px); text-shadow: 2px 2px var(--glow-amber); }
+    80% { transform: translate(2px, -2px); text-shadow: -2px -2px var(--glow-green); }
+}
+
+/* Signal Strength Indicator */
+.signal-indicator {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 4px;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.4;
+}
+
+.signal-bar {
+    width: 4px;
+    background: var(--glow-green);
+    border-radius: 2px;
+    animation: signalBounce 1.5s ease-in-out infinite;
+}
+
+.signal-bar:nth-child(1) { height: 10px; animation-delay: 0s; }
+.signal-bar:nth-child(2) { height: 20px; animation-delay: 0.2s; }
+.signal-bar:nth-child(3) { height: 30px; animation-delay: 0.4s; }
+.signal-bar:nth-child(4) { height: 40px; animation-delay: 0.6s; }
+.signal-bar:nth-child(5) { height: 50px; animation-delay: 0.8s; }
+
+@keyframes signalBounce {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* Decrypt Animation */
+.decrypt-text {
+    position: relative;
+    display: inline-block;
+}
+
+.decrypt-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bunker-black);
+    color: var(--glow-green);
+    overflow: hidden;
+    animation: decrypt 2s ease-in-out forwards;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+@keyframes decrypt {
+    0% { width: 100%; }
+    100% { width: 0%; }
+}
+
 /* Footer */
 footer {
     background-color: var(--bunker-dark);
@@ -906,6 +1319,8 @@ footer {
     padding: 40px 0;
     text-align: center;
     margin-top: 80px;
+    position: relative;
+    z-index: 10;
 }
 
 footer p {
