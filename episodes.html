@@ -212,21 +212,19 @@
         }
 
         .queue-item {
-            display: inline-flex;
+            display: flex;
             gap: 15px;
             padding: 15px;
             background: linear-gradient(135deg, #1a1410 0%, #2a1f18 50%, #1a1410 100%);
             border-radius: 8px;
-            margin-right: 12px;
             margin-bottom: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             border: 1px solid transparent;
-            width: calc(33.333% - 8px);
+            width: 100%;
         }
 
         .queue-item:hover {
-            transform: translateX(-5px);
             border-color: var(--glow-amber);
             box-shadow: 0 4px 15px rgba(255, 149, 0, 0.2);
         }
@@ -267,9 +265,7 @@
             font-size: 0.85rem;
             color: var(--text-light);
             margin: 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            line-height: 1.4;
         }
 
         .queue-runtime {
@@ -280,12 +276,6 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .queue-item {
-                width: calc(50% - 6px);
-            }
-        }
-
         @media (max-width: 768px) {
             .player-container {
                 padding: 0 20px;
@@ -297,11 +287,6 @@
 
             .now-playing-title {
                 font-size: 1.5rem;
-            }
-
-            .queue-item {
-                width: 100%;
-                margin-right: 0;
             }
         }
     </style>
