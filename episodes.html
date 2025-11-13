@@ -582,12 +582,9 @@
         // Queue item clicks
         document.querySelectorAll('.queue-item').forEach((item, index) => {
             item.addEventListener('click', () => {
-                const wasPlaying = !audio.paused;
                 loadEpisode(index);
-                if (wasPlaying) {
-                    audio.play();
-                    playBtn.textContent = '⏸';
-                }
+                audio.play();
+                playBtn.textContent = '⏸';
             });
         });
 
