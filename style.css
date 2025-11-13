@@ -21,6 +21,72 @@
     box-sizing: border-box;
 }
 
+/* Boot Sequence Loading Animation */
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--glow-green);
+    width: 0%;
+    z-index: 10000;
+    box-shadow: 0 0 10px var(--glow-green);
+    animation: loadProgress 2.5s ease-in-out forwards;
+}
+
+@keyframes loadProgress {
+    0% { width: 0%; }
+    25% { width: 30%; }
+    50% { width: 65%; }
+    75% { width: 85%; }
+    100% { width: 100%; }
+}
+
+.boot-sequence {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--glow-green);
+    font-size: 0.9rem;
+    animation: fadeOut 1s ease-in-out 2.5s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+.boot-text {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    opacity: 0;
+    animation: bootTextAppear 0.5s ease-in forwards;
+}
+
+@keyframes bootTextAppear {
+    to { opacity: 1; }
+}
+
+.boot-text:nth-child(1) { animation-delay: 0s; }
+.boot-text:nth-child(2) { animation-delay: 0.3s; }
+.boot-text:nth-child(3) { animation-delay: 0.6s; }
+.boot-text:nth-child(4) { animation-delay: 0.9s; }
+.boot-text:nth-child(5) { animation-delay: 1.2s; }
+.boot-text:nth-child(6) { animation-delay: 1.5s; }
+.boot-text:nth-child(7) {
+    animation-delay: 1.8s;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 20px var(--glow-green);
+}
+
 body {
     font-family: 'Share Tech Mono', monospace;
     background:
