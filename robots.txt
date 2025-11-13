@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://robertclarence1011.github.io/undercover-fallout/sitemap.xml
