@@ -20,7 +20,7 @@
     <div class="glitch-overlay"></div>
 
     <header>
-        <div class="version-badge">v8.0</div>
+        <div class="version-badge">v8.1</div>
         <a href="https://buymeacoffee.com/kcryback" target="_blank" class="support-badge">
             ☕ SUPPORT
         </a>
@@ -223,6 +223,46 @@
                 </div>
                 <div class="episode-cover">
                     <img src="episode-004-cover.jpg" alt="Episode 4 Cover">
+                </div>
+            </div>
+
+            <!-- Episode 5 -->
+            <div class="episode-card">
+                <div class="episode-number" id="playButton5">
+                    <div class="play-icon">▶</div>
+                    EP 005
+                </div>
+                <div class="episode-content">
+                    <h4>Protection-Free Zone</h4>
+                    <p class="episode-meta">Runtime: 14:28 | UNCLASSIFIED AS OF 11/13/2025</p>
+                    <p>
+                        When you accidentally become the intelligence honeypot that maps an entire criminal network, one Cash App transaction at a time. A refrigerator makes music. Laser pointers target from multiple positions. And somewhere between 2 and 5 AM, you realize the protection-free zone isn't a bug—it's a feature. Welcome to being The Asset.
+                    </p>
+                    <div class="episode-tags">
+                        <span class="tag">Intelligence Asset</span>
+                        <span class="tag">Honeypot</span>
+                        <span class="tag">Cash App Fraud</span>
+                        <span class="tag">Paranoia</span>
+                    </div>
+
+                    <!-- Audio Player -->
+                    <div class="audio-player" id="audioPlayer5">
+                        <audio id="episodeAudio5" preload="metadata">
+                            <source src="Episode-005-Frigidaire-Spies-and-Cocaine-Assets-with-intro.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="player-controls">
+                            <button class="play-pause-btn" id="playPauseBtn5">▶</button>
+                            <div class="progress-container" id="progressContainer5">
+                                <div class="progress-bar" id="progressBar5"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay5">0:00 / 14:28</span>
+                        </div>
+                    </div>
+                    <a href="transcripts/episode-005-transcript.txt" target="_blank" class="transcript-btn">📄 View Transcript</a>
+                </div>
+                <div class="episode-cover">
+                    <img src="episode-005-cover.jpg" alt="Episode 5 Cover">
                 </div>
             </div>
         </section>
@@ -688,6 +728,73 @@
             playIcon4.textContent = '▶';
             playButton4.classList.remove('playing');
             progressBar4.style.width = '0%';
+        });
+
+        // Audio Player Controls for Episode 5
+        const audio5 = document.getElementById('episodeAudio5');
+        const playButton5 = document.getElementById('playButton5');
+        const playPauseBtn5 = document.getElementById('playPauseBtn5');
+        const audioPlayer5 = document.getElementById('audioPlayer5');
+        const progressBar5 = document.getElementById('progressBar5');
+        const timeDisplay5 = document.getElementById('timeDisplay5');
+        const progressContainer5 = document.getElementById('progressContainer5');
+        const playIcon5 = playButton5.querySelector('.play-icon');
+
+        // Show player and start playing when EP 005 is clicked
+        playButton5.addEventListener('click', function() {
+            audioPlayer5.style.display = 'block';
+            if (audio5.paused) {
+                audio5.play();
+                playPauseBtn5.textContent = '⏸';
+                playIcon5.textContent = '⏸';
+                playButton5.classList.add('playing');
+            }
+        });
+
+        // Play/Pause button in the player controls
+        playPauseBtn5.addEventListener('click', function() {
+            if (audio5.paused) {
+                audio5.play();
+                playPauseBtn5.textContent = '⏸';
+                playIcon5.textContent = '⏸';
+                playButton5.classList.add('playing');
+            } else {
+                audio5.pause();
+                playPauseBtn5.textContent = '▶';
+                playIcon5.textContent = '▶';
+                playButton5.classList.remove('playing');
+            }
+        });
+
+        // Update progress bar
+        audio5.addEventListener('timeupdate', function() {
+            const progress = (audio5.currentTime / audio5.duration) * 100;
+            progressBar5.style.width = progress + '%';
+
+            // Update time display
+            const currentMinutes = Math.floor(audio5.currentTime / 60);
+            const currentSeconds = Math.floor(audio5.currentTime % 60);
+            const durationMinutes = Math.floor(audio5.duration / 60);
+            const durationSeconds = Math.floor(audio5.duration % 60);
+
+            timeDisplay5.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Click on progress bar to seek
+        progressContainer5.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = x / width;
+            audio5.currentTime = percentage * audio5.duration;
+        });
+
+        // Reset when audio ends
+        audio5.addEventListener('ended', function() {
+            playPauseBtn5.textContent = '▶';
+            playIcon5.textContent = '▶';
+            playButton5.classList.remove('playing');
+            progressBar5.style.width = '0%';
         });
     </script>
 </body>
