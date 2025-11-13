@@ -175,6 +175,20 @@
         /* Episode Queue */
         .episode-queue {
             width: 100%;
+            position: relative;
+        }
+
+        .satellite-bg-video {
+            position: absolute;
+            top: 0;
+            left: -40px;
+            right: -40px;
+            width: calc(100% + 80px);
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .queue-header {
@@ -350,6 +364,9 @@
     <div class="player-container">
         <!-- Episode Queue -->
         <div class="episode-queue">
+            <video class="satellite-bg-video" autoplay muted loop playsinline>
+                <source src="spy-cam-satellite.mp4" type="video/mp4">
+            </video>
             <h3 class="queue-header">BINGE PLAYER</h3>
 
             <div class="queue-item active" data-episode="1">
