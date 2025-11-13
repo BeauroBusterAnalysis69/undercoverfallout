@@ -193,30 +193,28 @@
         .queue-item::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                rgba(138, 43, 226, 0.4) 30deg,
-                rgba(75, 0, 130, 0.4) 60deg,
-                rgba(0, 119, 255, 0.4) 90deg,
-                rgba(0, 191, 255, 0.4) 120deg,
-                rgba(65, 255, 195, 0.4) 150deg,
-                rgba(0, 255, 127, 0.4) 180deg,
-                rgba(255, 215, 0, 0.4) 210deg,
-                rgba(255, 140, 0, 0.4) 240deg,
-                rgba(255, 20, 147, 0.4) 270deg,
-                rgba(255, 0, 255, 0.4) 300deg,
-                rgba(138, 43, 226, 0.4) 330deg,
-                transparent 360deg
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.3) 0%,
+                rgba(75, 0, 130, 0.3) 12.5%,
+                rgba(0, 119, 255, 0.3) 25%,
+                rgba(0, 191, 255, 0.3) 37.5%,
+                rgba(65, 255, 195, 0.3) 50%,
+                rgba(255, 215, 0, 0.3) 62.5%,
+                rgba(255, 140, 0, 0.3) 75%,
+                rgba(255, 20, 147, 0.3) 87.5%,
+                rgba(138, 43, 226, 0.3) 100%
             );
-            animation: rainbowRotate 4s linear infinite;
+            background-size: 200% 200%;
+            animation: rainbowShift 6s ease-in-out infinite, subtlePulse 3s ease-in-out infinite;
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 0;
+            border-radius: 8px;
         }
 
         .queue-item:hover::before {
@@ -244,9 +242,15 @@
             opacity: 0.7;
         }
 
-        @keyframes rainbowRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         /* Ensure content stays above the gradient effect */
