@@ -186,16 +186,73 @@
             transition: all 0.3s ease;
             border: 1px solid transparent;
             width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .queue-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(138, 43, 226, 0.4) 30deg,
+                rgba(75, 0, 130, 0.4) 60deg,
+                rgba(0, 119, 255, 0.4) 90deg,
+                rgba(0, 191, 255, 0.4) 120deg,
+                rgba(65, 255, 195, 0.4) 150deg,
+                rgba(0, 255, 127, 0.4) 180deg,
+                rgba(255, 215, 0, 0.4) 210deg,
+                rgba(255, 140, 0, 0.4) 240deg,
+                rgba(255, 20, 147, 0.4) 270deg,
+                rgba(255, 0, 255, 0.4) 300deg,
+                rgba(138, 43, 226, 0.4) 330deg,
+                transparent 360deg
+            );
+            animation: rainbowRotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .queue-item:hover::before {
+            opacity: 1;
         }
 
         .queue-item:hover {
-            border-color: var(--glow-amber);
-            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.2);
+            border-color: rgba(138, 43, 226, 0.6);
+            box-shadow:
+                0 0 20px rgba(138, 43, 226, 0.3),
+                0 0 40px rgba(0, 191, 255, 0.2),
+                0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .queue-item.active {
-            border-color: var(--glow-amber);
+            border-color: rgba(0, 191, 255, 0.8);
             background: linear-gradient(135deg, #2a1f18 0%, #3a2818 50%, #2a1f18 100%);
+            box-shadow:
+                0 0 25px rgba(0, 191, 255, 0.4),
+                0 0 50px rgba(138, 43, 226, 0.2);
+        }
+
+        .queue-item.active::before {
+            opacity: 0.7;
+        }
+
+        @keyframes rainbowRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ensure content stays above the gradient effect */
+        .queue-item > * {
+            position: relative;
+            z-index: 1;
         }
 
         .queue-artwork {
