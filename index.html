@@ -76,7 +76,7 @@
             <div class="declassified-alert">
                 <div class="alert-icon">🔓</div>
                 <div class="alert-content">
-                    <h3>NEW EPISODES 1-4 BELOW</h3>
+                    <h3>NEW EPISODES 1-6 BELOW</h3>
                     <p>NOW AVAILABLE • SCROLL DOWN FOR FULL ARCHIVE • CLEARANCE LEVEL: PUBLIC</p>
                 </div>
                 <div class="alert-stamp">UNCLASSIFIED</div>
@@ -264,11 +264,11 @@
                 </div>
             </div>
 
-            <!-- Episode 7 -->
+            <!-- Episode 6 -->
             <div class="episode-card" style="margin-top: 30px;">
-                <div class="episode-number" id="playButton7">
+                <div class="episode-number" id="playButton6">
                     <div class="play-icon">▶</div>
-                    EP 007
+                    EP 006
                 </div>
                 <div class="episode-content">
                     <h4>Hacking AI While High: Murder</h4>
@@ -278,23 +278,23 @@
                     </p>
 
                     <!-- Audio Player -->
-                    <div class="audio-player" id="audioPlayer7">
-                        <audio id="episodeAudio7" preload="metadata">
-                            <source src="Episode-007-Hacking-AI-While-High-Murder-with-intro.mp3" type="audio/mpeg">
+                    <div class="audio-player" id="audioPlayer6">
+                        <audio id="episodeAudio6" preload="metadata">
+                            <source src="Episode-006-Hacking-AI-While-High-Murder-with-intro.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
                         <div class="player-controls">
-                            <button class="play-pause-btn" id="playPauseBtn7">▶</button>
-                            <div class="progress-container" id="progressContainer7">
-                                <div class="progress-bar" id="progressBar7"></div>
+                            <button class="play-pause-btn" id="playPauseBtn6">▶</button>
+                            <div class="progress-container" id="progressContainer6">
+                                <div class="progress-bar" id="progressBar6"></div>
                             </div>
-                            <span class="time-display" id="timeDisplay7">0:00 / 12:46</span>
+                            <span class="time-display" id="timeDisplay6">0:00 / 12:46</span>
                         </div>
                     </div>
-                    <a href="transcripts/episode-007-transcript.txt" target="_blank" class="transcript-btn">📄 View Transcript</a>
+                    <a href="transcripts/episode-006-transcript.txt" target="_blank" class="transcript-btn">📄 View Transcript</a>
                 </div>
                 <div class="episode-cover">
-                    <img src="episode-007-cover.jpg" alt="Episode 7 Cover">
+                    <img src="episode-006-cover.jpg" alt="Episode 6 Cover">
                 </div>
             </div>
 
@@ -668,71 +668,71 @@
             progressBar5.style.width = '0%';
         });
 
-        // Audio Player Controls for Episode 7
-        const audio7 = document.getElementById('episodeAudio7');
-        const playButton7 = document.getElementById('playButton7');
-        const playPauseBtn7 = document.getElementById('playPauseBtn7');
-        const audioPlayer7 = document.getElementById('audioPlayer7');
-        const progressBar7 = document.getElementById('progressBar7');
-        const timeDisplay7 = document.getElementById('timeDisplay7');
-        const progressContainer7 = document.getElementById('progressContainer7');
-        const playIcon7 = playButton7.querySelector('.play-icon');
+        // Audio Player Controls for Episode 6
+        const audio6 = document.getElementById('episodeAudio6');
+        const playButton6 = document.getElementById('playButton6');
+        const playPauseBtn6 = document.getElementById('playPauseBtn6');
+        const audioPlayer6 = document.getElementById('audioPlayer6');
+        const progressBar6 = document.getElementById('progressBar6');
+        const timeDisplay6 = document.getElementById('timeDisplay6');
+        const progressContainer6 = document.getElementById('progressContainer6');
+        const playIcon6 = playButton6.querySelector('.play-icon');
 
-        // Show player and start playing when EP 007 is clicked
-        playButton7.addEventListener('click', function() {
-            audioPlayer7.style.display = 'block';
-            if (audio7.paused) {
-                audio7.play();
-                playPauseBtn7.textContent = '⏸';
-                playIcon7.textContent = '⏸';
-                playButton7.classList.add('playing');
+        // Show player and start playing when EP 006 is clicked
+        playButton6.addEventListener('click', function() {
+            audioPlayer6.style.display = 'block';
+            if (audio6.paused) {
+                audio6.play();
+                playPauseBtn6.textContent = '⏸';
+                playIcon6.textContent = '⏸';
+                playButton6.classList.add('playing');
             }
         });
 
         // Play/Pause button in the player controls
-        playPauseBtn7.addEventListener('click', function() {
-            if (audio7.paused) {
-                audio7.play();
-                playPauseBtn7.textContent = '⏸';
-                playIcon7.textContent = '⏸';
-                playButton7.classList.add('playing');
+        playPauseBtn6.addEventListener('click', function() {
+            if (audio6.paused) {
+                audio6.play();
+                playPauseBtn6.textContent = '⏸';
+                playIcon6.textContent = '⏸';
+                playButton6.classList.add('playing');
             } else {
-                audio7.pause();
-                playPauseBtn7.textContent = '▶';
-                playIcon7.textContent = '▶';
-                playButton7.classList.remove('playing');
+                audio6.pause();
+                playPauseBtn6.textContent = '▶';
+                playIcon6.textContent = '▶';
+                playButton6.classList.remove('playing');
             }
         });
 
         // Update progress bar
-        audio7.addEventListener('timeupdate', function() {
-            const progress = (audio7.currentTime / audio7.duration) * 100;
-            progressBar7.style.width = progress + '%';
+        audio6.addEventListener('timeupdate', function() {
+            const progress = (audio6.currentTime / audio6.duration) * 100;
+            progressBar6.style.width = progress + '%';
 
             // Update time display
-            const currentMinutes = Math.floor(audio7.currentTime / 60);
-            const currentSeconds = Math.floor(audio7.currentTime % 60);
-            const durationMinutes = Math.floor(audio7.duration / 60);
-            const durationSeconds = Math.floor(audio7.duration % 60);
+            const currentMinutes = Math.floor(audio6.currentTime / 60);
+            const currentSeconds = Math.floor(audio6.currentTime % 60);
+            const durationMinutes = Math.floor(audio6.duration / 60);
+            const durationSeconds = Math.floor(audio6.duration % 60);
 
-            timeDisplay7.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+            timeDisplay6.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
         });
 
         // Click on progress bar to seek
-        progressContainer7.addEventListener('click', function(e) {
+        progressContainer6.addEventListener('click', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const width = rect.width;
             const percentage = x / width;
-            audio7.currentTime = percentage * audio7.duration;
+            audio6.currentTime = percentage * audio6.duration;
         });
 
         // Reset when audio ends
-        audio7.addEventListener('ended', function() {
-            playPauseBtn7.textContent = '▶';
-            playIcon7.textContent = '▶';
-            playButton7.classList.remove('playing');
-            progressBar7.style.width = '0%';
+        audio6.addEventListener('ended', function() {
+            playPauseBtn6.textContent = '▶';
+            playIcon6.textContent = '▶';
+            playButton6.classList.remove('playing');
+            progressBar6.style.width = '0%';
         });
     </script>
 </body>
