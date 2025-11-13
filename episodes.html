@@ -48,10 +48,9 @@
             max-width: 1400px;
             margin: 40px auto;
             padding: 0 40px;
-            display: grid;
-            grid-template-columns: 1fr 400px;
+            display: flex;
+            flex-direction: column;
             gap: 40px;
-            align-items: start;
         }
 
         /* Now Playing Section */
@@ -201,8 +200,7 @@
 
         /* Episode Queue */
         .episode-queue {
-            position: sticky;
-            top: 20px;
+            width: 100%;
         }
 
         .queue-header {
@@ -214,15 +212,17 @@
         }
 
         .queue-item {
-            display: flex;
+            display: inline-flex;
             gap: 15px;
             padding: 15px;
             background: linear-gradient(135deg, #1a1410 0%, #2a1f18 50%, #1a1410 100%);
             border-radius: 8px;
+            margin-right: 12px;
             margin-bottom: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            width: calc(33.333% - 8px);
         }
 
         .queue-item:hover {
@@ -281,13 +281,8 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .player-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .episode-queue {
-                position: static;
+            .queue-item {
+                width: calc(50% - 6px);
             }
         }
 
@@ -302,6 +297,11 @@
 
             .now-playing-title {
                 font-size: 1.5rem;
+            }
+
+            .queue-item {
+                width: 100%;
+                margin-right: 0;
             }
         }
     </style>
@@ -327,41 +327,6 @@
     </header>
 
     <div class="player-container">
-        <!-- Now Playing Section -->
-        <div class="now-playing">
-            <div class="now-playing-artwork">
-                <img id="nowPlayingArtwork" src="episode-001-cover.jpg" alt="Now Playing">
-            </div>
-            <div class="now-playing-info">
-                <span class="episode-number-badge" id="nowPlayingBadge">EPISODE 001</span>
-                <h2 class="now-playing-title" id="nowPlayingTitle">Hacked iPhones, Federal Spies, and a Murder</h2>
-                <p class="now-playing-meta" id="nowPlayingMeta">Runtime: 13:18</p>
-
-                <!-- Player Controls -->
-                <div class="player-controls-wrapper">
-                    <div class="player-main-controls">
-                        <button class="play-pause-btn-main" id="mainPlayBtn">▶</button>
-                        <div class="progress-wrapper">
-                            <div class="time-labels">
-                                <span id="currentTime">0:00</span>
-                                <span id="totalTime">13:18</span>
-                            </div>
-                            <div class="progress-container-main" id="mainProgressContainer">
-                                <div class="progress-bar-main" id="mainProgressBar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="transcripts/episode-001-transcript.txt" target="_blank" class="transcript-link" id="transcriptLink">📄 View Transcript</a>
-            </div>
-
-            <!-- Hidden Audio Element -->
-            <audio id="mainAudio" preload="metadata">
-                <source src="Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-
         <!-- Episode Queue -->
         <div class="episode-queue">
             <h3 class="queue-header">PLAYLIST</h3>
@@ -431,6 +396,41 @@
                     <div class="queue-runtime">12:46</div>
                 </div>
             </div>
+        </div>
+
+        <!-- Now Playing Section -->
+        <div class="now-playing">
+            <div class="now-playing-artwork">
+                <img id="nowPlayingArtwork" src="episode-001-cover.jpg" alt="Now Playing">
+            </div>
+            <div class="now-playing-info">
+                <span class="episode-number-badge" id="nowPlayingBadge">EPISODE 001</span>
+                <h2 class="now-playing-title" id="nowPlayingTitle">Hacked iPhones, Federal Spies, and a Murder</h2>
+                <p class="now-playing-meta" id="nowPlayingMeta">Runtime: 13:18</p>
+
+                <!-- Player Controls -->
+                <div class="player-controls-wrapper">
+                    <div class="player-main-controls">
+                        <button class="play-pause-btn-main" id="mainPlayBtn">▶</button>
+                        <div class="progress-wrapper">
+                            <div class="time-labels">
+                                <span id="currentTime">0:00</span>
+                                <span id="totalTime">13:18</span>
+                            </div>
+                            <div class="progress-container-main" id="mainProgressContainer">
+                                <div class="progress-bar-main" id="mainProgressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="transcripts/episode-001-transcript.txt" target="_blank" class="transcript-link" id="transcriptLink">📄 View Transcript</a>
+            </div>
+
+            <!-- Hidden Audio Element -->
+            <audio id="mainAudio" preload="metadata">
+                <source src="Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </div>
 
