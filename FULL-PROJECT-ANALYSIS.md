@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**Undercover Fallout** is a static website and podcast project that blends true crime storytelling with personal narrative, conspiracy theory elements, and satirical commentary. It's a personality-driven multimedia platform centered on the persona of "KC Ryback," combining AI-generated podcast episodes with written content, all wrapped in a dystopian "digital bunker" aesthetic.
+**Undercover Fallout** is a documented murder investigation and firsthand account of how AI tools were used to fight systemic failures in the justice system. The project chronicles the investigation into Sophia's death—initially dismissed as an accidental fentanyl overdose—and KC Ryback's journey from private citizen to federal informant. This is not satire or fiction; it's a real-world case study demonstrating how artificial intelligence can structure complex criminal investigations and expose how the fentanyl epidemic masks potential homicides. The site combines AI-generated podcast episodes with detailed documentation, all presented through a "digital bunker" aesthetic that reflects the isolated, surveillance-heavy nature of the investigation.
 
 ---
 
@@ -484,25 +484,25 @@ setTimeout(() => {
 ## PROJECT INSIGHTS AND NOTABLE ASPECTS
 
 ### Content Strategy:
-- **AI-Generated Content**: Uses Google NotebookLM to create podcast episodes
-- **Personal Narrative**: Based on real-life experiences (author's 2024 trauma)
-- **Satire + Serious**: Blends conspiracy theory aesthetic with real commentary
-- **True Crime Genre**: Episodes cover DEA, gangs, surveillance, cybercrime
+- **AI-Powered Investigation**: Uses Google NotebookLM to structure and analyze complex criminal evidence
+- **Documented Reality**: Real firsthand account of Sophia's murder investigation and federal cooperation
+- **Investigative Documentation**: Episodes present evidence, analysis, and systemic critiques based on actual events
+- **True Crime Investigation**: Chronicles DEA involvement, federal informant work, and pursuit of justice
 
 ### Unique Selling Points:
-1. **AI as Creative Tool**: NotebookLM generates audio from written analysis
-2. **Digital Bunker Aesthetic**: Immersive spy-themed design
-3. **Personal Processing**: Trauma transformed into art/content
-4. **No-Framework Philosophy**: Pure vanilla code for control
+1. **AI as Investigative Tool**: NotebookLM used to organize evidence, test narratives, and prepare federal testimony
+2. **Digital Bunker Aesthetic**: Design reflects the isolated, surveillance-heavy reality of the investigation
+3. **Systemic Exposure**: Demonstrates how fentanyl deaths mask potential murders within bureaucratic systems
+4. **Empowerment Blueprint**: Shows how individuals can use AI to fight institutional failures and demand accountability
 
 ### Content Topics:
-- Federal surveillance (DEA, FBI, Secret Service)
-- Cybersecurity and phone hacking
-- Drug policy reform proposals
-- Gang violence (MS-13)
-- Murder investigation
-- AI in criminal justice
-- Personal recovery narrative
+- Murder investigation (Sophia's death)
+- Federal cooperation (DEA, Secret Service)
+- AI-assisted criminal analysis
+- Fentanyl crisis as cover for homicide
+- Drug policy reform based on street-level insights
+- Exploitation networks and organized crime
+- Using technology to overcome systemic indifference
 
 ### Git Activity:
 - Active development (10+ recent commits)
@@ -537,6 +537,8 @@ setTimeout(() => {
 
 ## CONCLUSION
 
-**Undercover Fallout** is a well-crafted static website that successfully merges podcast hosting with an immersive thematic experience. It demonstrates strong front-end development skills, creative use of AI for content generation, and a clear artistic vision. The "digital bunker" aesthetic is consistently executed across all pages, and the technical implementation—while simple—is effective and performant. The project represents a unique approach to personal storytelling, using AI-generated podcasts to process real-life trauma into creative content.
+**Undercover Fallout** is a documented murder investigation that demonstrates how AI tools can empower individuals to fight systemic failures in the justice system. The project successfully combines technical implementation with serious investigative content, using Google NotebookLM to structure complex criminal evidence and prepare federal testimony. The "digital bunker" aesthetic authentically reflects the isolated, surveillance-heavy reality of conducting a private investigation while cooperating with federal law enforcement.
 
-The vanilla JavaScript approach, while requiring more code, provides complete control and transparency, aligning with the project's ethos of simplicity and self-reliance. The site is production-ready and fully deployable to GitHub Pages or any static hosting service.
+This is not entertainment—it's evidence. The project exposes a critical systemic issue: how the fentanyl epidemic creates perfect cover for targeted murders that are dismissed as accidental overdoses. By documenting the investigation into Sophia's death and the subsequent DEA cooperation, the site serves as both memorial and blueprint, showing others how to use AI to structure evidence, demand accountability, and make the invisible visible.
+
+The vanilla JavaScript approach provides complete control and transparency, ensuring the documentation remains accessible and under the author's direct control. The site is production-ready, fully deployable to GitHub Pages, and serves as proof that technology can bridge the gap between street-level intelligence and institutional justice.

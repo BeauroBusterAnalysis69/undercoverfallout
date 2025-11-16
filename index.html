@@ -515,7 +515,7 @@
             </div>
 
             <!-- Hidden Audio Element -->
-            <audio id="mainAudio" preload="metadata">
+            <audio id="mainAudio" preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
                 <source src="Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3" type="audio/mpeg">
             </audio>
         </div>
@@ -664,6 +664,40 @@
             // Update button states
             updateButtonStates();
         }
+
+        // Track episode plays
+        audio.addEventListener('play', () => {
+            const episode = episodes[currentEpisodeIndex];
+            gtag('event', 'episode_play', {
+                'episode_number': episode.number,
+                'episode_title': episode.title,
+                'event_category': 'Audio Player',
+                'event_label': `Episode ${episode.number}: ${episode.title}`
+            });
+        });
+
+        // Track episode completion
+        let completionTracked = false;
+        audio.addEventListener('timeupdate', () => {
+            const episode = episodes[currentEpisodeIndex];
+            const percentComplete = (audio.currentTime / audio.duration) * 100;
+
+            // Track when user reaches 90% completion
+            if (percentComplete >= 90 && !completionTracked) {
+                completionTracked = true;
+                gtag('event', 'episode_complete', {
+                    'episode_number': episode.number,
+                    'episode_title': episode.title,
+                    'event_category': 'Audio Player',
+                    'event_label': `Episode ${episode.number}: ${episode.title}`
+                });
+            }
+        });
+
+        // Reset completion tracking on episode change
+        audio.addEventListener('loadstart', () => {
+            completionTracked = false;
+        });
 
         // Play/Pause
         playBtn.addEventListener('click', () => {
