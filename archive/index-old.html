@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEHSCTH0GJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GEHSCTH0GJ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UNDERCOVER FALLOUT: True crime podcast exposing DEA operations, federal surveillance, cybercrime, fentanyl trafficking, gang violence, intelligence agencies, and covert operations. Deep dive into murder investigations, drug policy reform, and AI-driven justice.">
+    <meta name="keywords" content="true crime podcast, DEA investigations, federal surveillance, cybercrime, fentanyl crisis, cocaine trafficking, gang violence, MS-13, intelligence agencies, covert operations, murder investigation, cyber security, AI hacking, drug policy reform, undercover operations, spy podcast, crime documentary, dark web, organized crime, federal agents">
+    <title>BINGE PLAYER | UNDERCOVER FALLOUT</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Player Page Specific Styles */
+        body {
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        header .container {
+            max-width: 100%;
+            padding: 0 40px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        header .tagline {
+            display: none;
+        }
+
+        .operation-subtitle {
+            text-align: center;
+            color: var(--glow-amber);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin: 8px 0 0 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .header-nav {
+            margin-top: 15px;
+        }
+
+        /* Player Container */
+        .player-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Compact Player */
+        .compact-player {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .player-info {
+            margin-bottom: 15px;
+        }
+
+        .now-playing-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .now-playing-meta {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* Player Controls */
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #654321;
+            color: var(--text-light);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            border-color: var(--glow-amber);
+            color: var(--glow-amber);
+            box-shadow: 0 0 15px rgba(255, 149, 0, 0.3);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .play-pause-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--glow-amber) 0%, #ff9500 100%);
+            border: none;
+            color: #000;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
+        }
+
+        .play-pause-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.6);
+        }
+
+        .progress-wrapper {
+            flex: 1;
+        }
+
+        .time-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .progress-container-main {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar-main {
+            height: 100%;
+            background: linear-gradient(90deg, var(--glow-amber) 0%, #ff9500 100%);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 8px rgba(255, 149, 0, 0.5);
+        }
+
+        /* Episode Queue */
+        .episode-queue {
+            width: 100%;
+            position: relative;
+        }
+
+        .satellite-bg-video {
+            position: absolute;
+            top: 0;
+            left: -40px;
+            right: -40px;
+            width: calc(100% + 80px);
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .queue-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .queue-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .queue-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.3) 0%,
+                rgba(75, 0, 130, 0.3) 12.5%,
+                rgba(0, 119, 255, 0.3) 25%,
+                rgba(0, 191, 255, 0.3) 37.5%,
+                rgba(65, 255, 195, 0.3) 50%,
+                rgba(255, 215, 0, 0.3) 62.5%,
+                rgba(255, 140, 0, 0.3) 75%,
+                rgba(255, 20, 147, 0.3) 87.5%,
+                rgba(138, 43, 226, 0.3) 100%
+            );
+            background-size: 200% 200%;
+            animation: rainbowShift 6s ease-in-out infinite, subtlePulse 3s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+            border-radius: 8px;
+        }
+
+        .queue-item:hover::before {
+            opacity: 1;
+        }
+
+        .queue-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .queue-item.active {
+            border-color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #1a1a1a 0%, #222222 50%, #1a1a1a 100%);
+            box-shadow:
+                0 0 30px rgba(255, 255, 255, 0.5),
+                0 0 60px rgba(255, 255, 255, 0.3);
+        }
+
+        .queue-item.active::before {
+            opacity: 0.7;
+        }
+
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Ensure content stays above the gradient effect */
+        .queue-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .queue-artwork {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .queue-artwork img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .queue-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .queue-episode-num {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--glow-amber);
+            margin-bottom: 4px;
+        }
+
+        .queue-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .queue-runtime {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .player-container {
+                padding: 0 20px;
+            }
+
+            .now-playing-info {
+                padding: 25px;
+            }
+
+            .now-playing-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading bar -->
+    <div class="loading-bar"></div>
+
+    <!-- Boot sequence -->
+    <div class="boot-sequence">
+        <div class="boot-text">> INITIALIZING SECURE CONNECTION...</div>
+        <div class="boot-text">> VERIFYING CREDENTIALS...</div>
+        <div class="boot-text">> DECRYPTING CASE FILES...</div>
+        <div class="boot-text">> LOADING DATABASE...</div>
+        <div class="boot-text">> ESTABLISHING TERMINAL LINK...</div>
+        <div class="boot-text">> ACCESS GRANTED</div>
+        <div class="boot-text">> WELCOME TO UNDERCOVER FALLOUT</div>
+    </div>
+
+    <div class="glitch-overlay"></div>
+
+    <header>
+        <div class="version-badge">v9.5</div>
+        <a href="https://buymeacoffee.com/kcryback" target="_blank" class="support-badge">
+            ☕ SUPPORT
+        </a>
+        <div class="container">
+            <h1 class="glitch" data-text="UNDERCOVER FALLOUT">UNDERCOVER FALLOUT</h1>
+            <p class="operation-subtitle">OPERATION PODCAST</p>
+            <nav class="header-nav">
+                <a href="index.html" class="active">BINGE PLAYER</a>
+                <a href="episodes.html">INTEL BRIEFING</a>
+                <a href="commentary.html">COMMENTARY</a>
+                <a href="mission.html">THE MISSION</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="player-container">
+        <!-- Episode Queue -->
+        <div class="episode-queue">
+            <video class="satellite-bg-video" autoplay muted loop playsinline>
+                <source src="spy-cam-satellite.mp4" type="video/mp4">
+            </video>
+            <h3 class="queue-header">BINGE PLAYER</h3>
+
+            <div class="queue-item active" data-episode="1">
+                <div class="queue-artwork">
+                    <img src="episode-001-cover.jpg" alt="Episode 1">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 001</div>
+                    <h4 class="queue-title">Hacked iPhones, Federal Spies, and a Murder</h4>
+                    <div class="queue-runtime">13:18</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="2">
+                <div class="queue-artwork">
+                    <img src="episode-002-cover.jpg" alt="Episode 2">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 002</div>
+                    <h4 class="queue-title">75 Days till Digital Quicksand</h4>
+                    <div class="queue-runtime">12:52</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="3">
+                <div class="queue-artwork">
+                    <img src="episode-003-cover.jpg" alt="Episode 3">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 003</div>
+                    <h4 class="queue-title">$75,000, The Doctor, and Systematic Theft</h4>
+                    <div class="queue-runtime">15:28</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="4">
+                <div class="queue-artwork">
+                    <img src="episode-004-cover.jpg" alt="Episode 4">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 004</div>
+                    <h4 class="queue-title">Neighborhood Girl Energy, Tear Gas, and MS-13</h4>
+                    <div class="queue-runtime">13:26</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="5">
+                <div class="queue-artwork">
+                    <img src="episode-005-cover.jpg" alt="Episode 5">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 005</div>
+                    <h4 class="queue-title">Protection-Free Zone</h4>
+                    <div class="queue-runtime">14:28</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="6">
+                <div class="queue-artwork">
+                    <img src="episode-006-cover.jpg" alt="Episode 6">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 006</div>
+                    <h4 class="queue-title">Hacking AI While High: Murder</h4>
+                    <div class="queue-runtime">12:46</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="7">
+                <div class="queue-artwork">
+                    <img src="episode-007-cover.jpg" alt="Episode 7">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 007</div>
+                    <h4 class="queue-title">Funerals, Teeth and The 6</h4>
+                    <div class="queue-runtime">11:39</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="8">
+                <div class="queue-artwork">
+                    <img src="episode-007.2-cover.jpg" alt="Episode 007.2">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 007.2</div>
+                    <h4 class="queue-title">Trap Hotel HQ - Where Fun Goes to Die</h4>
+                    <div class="queue-runtime">10:43</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="9">
+                <div class="queue-artwork">
+                    <img src="episode-007.3-cover.jpg" alt="Episode 007.3">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 007.3</div>
+                    <h4 class="queue-title">Wrong Floor Right Door</h4>
+                    <div class="queue-runtime">34:45</div>
+                </div>
+            </div>
+
+            <div class="queue-item" data-episode="10">
+                <div class="queue-artwork">
+                    <img src="episode-008-cover.jpg" alt="Episode 008">
+                </div>
+                <div class="queue-info">
+                    <div class="queue-episode-num">EPISODE 008</div>
+                    <h4 class="queue-title">DEA, Meth, and Sophia's Justice</h4>
+                    <div class="queue-runtime">25:04</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compact Player -->
+        <div class="compact-player">
+            <div class="player-info">
+                <h2 class="now-playing-title" id="nowPlayingTitle">Hacked iPhones, Federal Spies, and a Murder</h2>
+                <p class="now-playing-meta" id="nowPlayingMeta">Episode 1 • 13:18</p>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <button class="control-btn" id="prevBtn">◄</button>
+                <button class="control-btn play-pause-btn" id="mainPlayBtn">▶</button>
+                <button class="control-btn" id="nextBtn">►</button>
+                <div class="progress-wrapper">
+                    <div class="time-labels">
+                        <span id="currentTime">0:00</span>
+                        <span id="totalTime">13:18</span>
+                    </div>
+                    <div class="progress-container-main" id="mainProgressContainer">
+                        <div class="progress-bar-main" id="mainProgressBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Audio Element -->
+            <audio id="mainAudio" preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
+                <source src="Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 UNDERCOVER FALLOUT | Broadcasting from an undisclosed location</p>
+            <p class="disclaimer">This is a work of creative commentary. Some elements are real. Some are fiction. Good luck figuring out which is which.</p>
+            <p style="margin-top: 20px;">
+                <a href="https://buymeacoffee.com/kcryback" target="_blank" style="color: var(--glow-amber); text-decoration: none; font-weight: 700;">☕ Support the Project</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Episode Data
+        const episodes = [
+            {
+                number: 1,
+                title: "Hacked iPhones, Federal Spies, and a Murder",
+                runtime: "13:18",
+                audioFile: "Episode-001-Hacked-iPhones-Federal-Spies-and-a-Murder.mp3",
+                coverArt: "episode-001-cover.jpg",
+                transcript: "transcripts/episode-001-transcript.txt"
+            },
+            {
+                number: 2,
+                title: "75 Days till Digital Quicksand: The Coming Apocalypse",
+                runtime: "12:52",
+                audioFile: "Episode-002-75-Days-till-Digital-Quicksand-The-Coming-Apocalypse.mp3",
+                coverArt: "episode-002-cover.jpg",
+                transcript: "transcripts/episode-002-transcript.txt"
+            },
+            {
+                number: 3,
+                title: "$75,000, The Doctor, and Systematic Theft",
+                runtime: "15:28",
+                audioFile: "Episode-003-75000-The-Doctor-and-Systematic-Theft.mp3",
+                coverArt: "episode-003-cover.jpg",
+                transcript: "transcripts/episode-003-transcript.txt"
+            },
+            {
+                number: 4,
+                title: "Neighborhood Girl Energy, Tear Gas, and MS-13",
+                runtime: "13:26",
+                audioFile: "Episode-004-Neighborhood-Girl-Energy-Tear-Gas-and-MS-13.mp3",
+                coverArt: "episode-004-cover.jpg",
+                transcript: "transcripts/episode-004-transcript.txt"
+            },
+            {
+                number: 5,
+                title: "Protection-Free Zone",
+                runtime: "14:28",
+                audioFile: "Episode-005-Frigidaire-Spies-and-Cocaine-Assets-with-intro.mp3",
+                coverArt: "episode-005-cover.jpg",
+                transcript: "transcripts/episode-005-transcript.txt"
+            },
+            {
+                number: 6,
+                title: "Hacking AI While High: Murder",
+                runtime: "12:46",
+                audioFile: "Episode-006-Hacking-AI-While-High-Murder-with-intro.mp3",
+                coverArt: "episode-006-cover.jpg",
+                transcript: "transcripts/episode-006-transcript.txt"
+            },
+            {
+                number: 7,
+                title: "Funerals, Teeth and The 6",
+                runtime: "11:39",
+                audioFile: "Episode-007-Funerals-Teeth-and-The-6-with-intro.mp3",
+                coverArt: "episode-007-cover.jpg",
+                transcript: "transcripts/episode-007-transcript.txt"
+            },
+            {
+                number: 8,
+                title: "Trap Hotel HQ - Where Fun Goes to Die",
+                runtime: "10:43",
+                audioFile: "Episode-007.2-Dirty-Trap-House-HQ-with-intro.mp3",
+                coverArt: "episode-007.2-cover.jpg",
+                transcript: "transcripts/episode-007.2-transcript.txt"
+            },
+            {
+                number: 9,
+                title: "Wrong Floor Right Door",
+                runtime: "34:45",
+                audioFile: "Episode-007.3-Wrong-Floor-Right-Door-with-intro.mp3",
+                coverArt: "episode-007.3-cover.jpg",
+                transcript: "transcripts/episode-007.3-transcript.txt"
+            },
+            {
+                number: 10,
+                title: "DEA, Meth, and Sophia's Justice",
+                runtime: "25:04",
+                audioFile: "Episode-008-DEA-Meth-Sophias-Justice-with-intro.mp3",
+                coverArt: "episode-008-cover.jpg",
+                transcript: "transcripts/episode-008-transcript.txt"
+            }
+        ];
+
+        // Player State
+        let currentEpisodeIndex = 0;
+        const audio = document.getElementById('mainAudio');
+        const playBtn = document.getElementById('mainPlayBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('mainProgressBar');
+        const progressContainer = document.getElementById('mainProgressContainer');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+
+        // Update button states
+        function updateButtonStates() {
+            prevBtn.disabled = currentEpisodeIndex === 0;
+            nextBtn.disabled = currentEpisodeIndex === episodes.length - 1;
+        }
+
+        // Load Episode Function
+        function loadEpisode(index) {
+            currentEpisodeIndex = index;
+            const episode = episodes[index];
+
+            // Update audio source
+            audio.src = episode.audioFile;
+
+            // Update UI
+            document.getElementById('nowPlayingTitle').textContent = episode.title;
+            document.getElementById('nowPlayingMeta').textContent = `Episode ${episode.number} • ${episode.runtime}`;
+            totalTimeDisplay.textContent = episode.runtime;
+
+            // Update queue active state
+            document.querySelectorAll('.queue-item').forEach((item, idx) => {
+                if (idx === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Scroll queue item into view
+            const activeItem = document.querySelector('.queue-item.active');
+            if (activeItem) {
+                activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Update button states
+            updateButtonStates();
+        }
+
+        // Track episode plays
+        audio.addEventListener('play', () => {
+            const episode = episodes[currentEpisodeIndex];
+            gtag('event', 'episode_play', {
+                'episode_number': episode.number,
+                'episode_title': episode.title,
+                'event_category': 'Audio Player',
+                'event_label': `Episode ${episode.number}: ${episode.title}`
+            });
+        });
+
+        // Track episode completion
+        let completionTracked = false;
+        audio.addEventListener('timeupdate', () => {
+            const episode = episodes[currentEpisodeIndex];
+            const percentComplete = (audio.currentTime / audio.duration) * 100;
+
+            // Track when user reaches 90% completion
+            if (percentComplete >= 90 && !completionTracked) {
+                completionTracked = true;
+                gtag('event', 'episode_complete', {
+                    'episode_number': episode.number,
+                    'episode_title': episode.title,
+                    'event_category': 'Audio Player',
+                    'event_label': `Episode ${episode.number}: ${episode.title}`
+                });
+            }
+        });
+
+        // Reset completion tracking on episode change
+        audio.addEventListener('loadstart', () => {
+            completionTracked = false;
+        });
+
+        // Play/Pause
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.textContent = '⏸';
+            } else {
+                audio.pause();
+                playBtn.textContent = '▶';
+            }
+        });
+
+        // Previous Episode
+        prevBtn.addEventListener('click', () => {
+            if (currentEpisodeIndex > 0) {
+                loadEpisode(currentEpisodeIndex - 1);
+                audio.play();
+                playBtn.textContent = '⏸';
+            }
+        });
+
+        // Next Episode
+        nextBtn.addEventListener('click', () => {
+            if (currentEpisodeIndex < episodes.length - 1) {
+                loadEpisode(currentEpisodeIndex + 1);
+                audio.play();
+                playBtn.textContent = '⏸';
+            }
+        });
+
+        // Update Progress
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60);
+            currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Seek
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = x / rect.width;
+            audio.currentTime = percentage * audio.duration;
+        });
+
+        // Auto-advance to next episode
+        audio.addEventListener('ended', () => {
+            playBtn.textContent = '▶';
+
+            // Load next episode if available
+            if (currentEpisodeIndex < episodes.length - 1) {
+                loadEpisode(currentEpisodeIndex + 1);
+                audio.play();
+                playBtn.textContent = '⏸';
+            }
+        });
+
+        // Queue item clicks
+        document.querySelectorAll('.queue-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                loadEpisode(index);
+                audio.play();
+                playBtn.textContent = '⏸';
+            });
+        });
+
+        // Update duration when metadata loads
+        audio.addEventListener('loadedmetadata', () => {
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60);
+            totalTimeDisplay.textContent = `${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
+        });
+
+        // Initialize button states on page load
+        updateButtonStates();
+    </script>
+
+    <!-- Visual Effects Engine -->
+    <script src="visual-effects.js"></script>
+</body>
+</html>
