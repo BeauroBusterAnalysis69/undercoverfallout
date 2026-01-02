@@ -3,37 +3,649 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDERCOVER FALLOUT</title>
+    <title>UNDERCOVER FALLOUT | Transmission from the End of Busy Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cosmic-purple: #8B5CF6;
+            --dead-red: #EF4444;
+            --electric-teal: #14B8A6;
+            --sunset-orange: #F97316;
+            --cosmic-pink: #EC4899;
+            --deep-space: #0a0a12;
+            --card-bg: rgba(10, 10, 18, 0.85);
+        }
+
         body {
             min-height: 100vh;
+            background: var(--deep-space);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        /* ========== BOOT SEQUENCE ========== */
+        .boot-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--deep-space);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .boot-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .boot-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, var(--cosmic-purple), var(--electric-teal), var(--cosmic-pink));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 40px;
+        }
+
+        .boot-terminal {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--electric-teal);
+            text-align: left;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .boot-line {
+            opacity: 0;
+            margin: 8px 0;
+            animation: bootFadeIn 0.3s ease forwards;
+        }
+
+        .boot-line::before {
+            content: '> ';
+            color: var(--cosmic-pink);
+        }
+
+        @keyframes bootFadeIn {
+            to { opacity: 1; }
+        }
+
+        .boot-progress {
+            width: 400px;
+            max-width: 90%;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .boot-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--cosmic-purple), var(--electric-teal), var(--cosmic-pink));
+            border-radius: 3px;
+            animation: bootProgress 2.5s ease forwards;
+        }
+
+        @keyframes bootProgress {
+            to { width: 100%; }
+        }
+
+        /* ========== COSMIC BACKGROUND ========== */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 40%, rgba(236, 72, 153, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 60% 60%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                var(--deep-space);
+        }
+
+        .tiedye-flow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            z-index: -1;
+            opacity: 0.35;
+            background: conic-gradient(from 0deg at 30% 70%,
+                var(--cosmic-purple),
+                var(--electric-teal),
+                var(--cosmic-pink),
+                var(--sunset-orange),
+                var(--dead-red),
+                var(--cosmic-purple));
+            filter: blur(80px);
+            animation: cosmicDrift 25s ease-in-out infinite;
+        }
+
+        @keyframes cosmicDrift {
+            0%, 100% { transform: translate(-25%, -25%) rotate(0deg); }
+            33% { transform: translate(-20%, -30%) rotate(120deg); }
+            66% { transform: translate(-30%, -20%) rotate(240deg); }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .site-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg,
+                var(--cosmic-purple) 0%,
+                var(--electric-teal) 25%,
+                var(--cosmic-pink) 50%,
+                var(--sunset-orange) 75%,
+                var(--cosmic-purple) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ========== PLAYER ========== */
+        .player-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        .now-playing-label {
+            font-size: 0.7rem;
+            color: var(--cosmic-pink);
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .now-playing-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .now-playing-meta {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .control-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #0a0a0a;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-        .container {
-            text-align: center;
-            padding: 40px;
+
+        .control-btn:hover {
+            border-color: var(--electric-teal);
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+            transform: scale(1.05);
         }
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 4px;
+
+        .play-btn {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-pink));
+            border: none;
+            font-size: 1.3rem;
+        }
+
+        .play-btn:hover {
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .progress-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .progress-bar-bg {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--cosmic-purple), var(--electric-teal));
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+
+        /* ========== EPISODE QUEUE ========== */
+        .queue-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            backdrop-filter: blur(20px);
+        }
+
+        .queue-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--electric-teal);
+            letter-spacing: 3px;
             margin-bottom: 20px;
         }
-        p {
-            color: #888;
+
+        .episode-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .episode-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                rgba(139, 92, 246, 0.2) 0%,
+                rgba(20, 184, 166, 0.2) 50%,
+                rgba(236, 72, 153, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .episode-item:hover::before,
+        .episode-item.active::before {
+            opacity: 1;
+        }
+
+        .episode-item:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateX(5px);
+        }
+
+        .episode-item.active {
+            border-color: var(--electric-teal);
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.2);
+        }
+
+        .episode-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .episode-number {
+            font-size: 0.7rem;
+            color: var(--cosmic-pink);
+            letter-spacing: 2px;
+            min-width: 80px;
+        }
+
+        .episode-info {
+            flex: 1;
+        }
+
+        .episode-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .episode-duration {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .episode-play-icon {
             font-size: 1.2rem;
+            color: var(--electric-teal);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .episode-item:hover .episode-play-icon,
+        .episode-item.active .episode-play-icon {
+            opacity: 1;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 600px) {
+            .player-controls {
+                flex-wrap: wrap;
+            }
+            .progress-container {
+                width: 100%;
+                order: 1;
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>UNDERCOVER FALLOUT</h1>
-        <p>Under Construction</p>
+    <!-- Boot Sequence Overlay -->
+    <div class="boot-overlay" id="bootOverlay">
+        <div class="boot-logo">UNDERCOVER FALLOUT</div>
+        <div class="boot-terminal" id="bootTerminal"></div>
+        <div class="boot-progress">
+            <div class="boot-progress-bar"></div>
+        </div>
     </div>
+
+    <!-- Background Effects -->
+    <div class="cosmic-bg"></div>
+    <div class="tiedye-flow"></div>
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header>
+        <h1 class="site-title">UNDERCOVER FALLOUT</h1>
+        <p class="tagline">Transmission from the End of Busy Work</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Player Section -->
+        <div class="player-section">
+            <div class="now-playing-label">NOW PLAYING</div>
+            <div class="now-playing-title" id="nowPlayingTitle">Select an episode to begin</div>
+            <div class="now-playing-meta" id="nowPlayingMeta">--:--</div>
+
+            <div class="player-controls">
+                <button class="control-btn" id="prevBtn">&#9664;</button>
+                <button class="control-btn play-btn" id="playBtn">&#9654;</button>
+                <button class="control-btn" id="nextBtn">&#9654;</button>
+                <div class="progress-container">
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span>
+                        <span id="totalTime">0:00</span>
+                    </div>
+                    <div class="progress-bar-bg" id="progressBar">
+                        <div class="progress-bar-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+            <audio id="audioPlayer"></audio>
+        </div>
+
+        <!-- Episode Queue -->
+        <div class="queue-section">
+            <h2 class="queue-header">EPISODE QUEUE</h2>
+            <div id="episodeList">
+                <!-- Episodes will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        BROADCASTING FROM AN UNDISCLOSED LOCATION
+    </footer>
+
+    <script>
+        // ========== BOOT SEQUENCE ==========
+        const bootMessages = [
+            'INITIALIZING COSMIC UPLINK...',
+            'SCANNING ASTRAL FREQUENCIES...',
+            'DECRYPTING TRANSMISSION PROTOCOLS...',
+            'SYNCHRONIZING NEURAL PATHWAYS...',
+            'CALIBRATING AUDIO MATRIX...',
+            'ESTABLISHING SECURE CHANNEL...',
+            'SIGNAL LOCKED',
+            'WELCOME TO THE FREQUENCY'
+        ];
+
+        const bootTerminal = document.getElementById('bootTerminal');
+        const bootOverlay = document.getElementById('bootOverlay');
+
+        bootMessages.forEach((msg, i) => {
+            setTimeout(() => {
+                const line = document.createElement('div');
+                line.className = 'boot-line';
+                line.textContent = msg;
+                line.style.animationDelay = '0s';
+                bootTerminal.appendChild(line);
+            }, i * 300);
+        });
+
+        setTimeout(() => {
+            bootOverlay.classList.add('hidden');
+        }, 3000);
+
+        // ========== STARS ==========
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            const size = Math.random() * 2 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            starsContainer.appendChild(star);
+        }
+
+        // ========== EPISODE DATA ==========
+        // Placeholder episodes - replace with your actual episodes
+        const episodes = [
+            { number: '001', title: 'Episode Coming Soon', duration: '00:00', file: '' },
+            { number: '002', title: 'Episode Coming Soon', duration: '00:00', file: '' },
+            { number: '003', title: 'Episode Coming Soon', duration: '00:00', file: '' }
+        ];
+
+        // ========== RENDER EPISODES ==========
+        const episodeList = document.getElementById('episodeList');
+        episodes.forEach((ep, index) => {
+            const item = document.createElement('div');
+            item.className = 'episode-item';
+            item.dataset.index = index;
+            item.innerHTML = `
+                <div class="episode-number">EP ${ep.number}</div>
+                <div class="episode-info">
+                    <div class="episode-title">${ep.title}</div>
+                    <div class="episode-duration">${ep.duration}</div>
+                </div>
+                <div class="episode-play-icon">&#9654;</div>
+            `;
+            item.addEventListener('click', () => loadEpisode(index));
+            episodeList.appendChild(item);
+        });
+
+        // ========== PLAYER LOGIC ==========
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const totalTimeEl = document.getElementById('totalTime');
+        const nowPlayingTitle = document.getElementById('nowPlayingTitle');
+        const nowPlayingMeta = document.getElementById('nowPlayingMeta');
+
+        let currentEpisode = -1;
+
+        function loadEpisode(index) {
+            if (episodes[index].file === '') return; // No file yet
+
+            currentEpisode = index;
+            const ep = episodes[index];
+
+            // Update UI
+            document.querySelectorAll('.episode-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+
+            nowPlayingTitle.textContent = ep.title;
+            nowPlayingMeta.textContent = `Episode ${ep.number}`;
+
+            // Load audio
+            audio.src = ep.file;
+            audio.play();
+            playBtn.innerHTML = '&#10074;&#10074;';
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = '&#10074;&#10074;';
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '&#9654;';
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentEpisode > 0) loadEpisode(currentEpisode - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentEpisode < episodes.length - 1) loadEpisode(currentEpisode + 1);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100 || 0;
+            progressFill.style.width = percent + '%';
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            totalTimeEl.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('ended', () => {
+            playBtn.innerHTML = '&#9654;';
+            if (currentEpisode < episodes.length - 1) {
+                loadEpisode(currentEpisode + 1);
+            }
+        });
+
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            audio.currentTime = percent * audio.duration;
+        });
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return mins + ':' + secs.toString().padStart(2, '0');
+        }
+    </script>
 </body>
 </html>
