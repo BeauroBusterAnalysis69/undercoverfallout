@@ -129,7 +129,7 @@
             width: 200%;
             height: 200%;
             z-index: -1;
-            opacity: 0.35;
+            opacity: 0.10;
             background: conic-gradient(from 0deg at 30% 70%,
                 var(--cosmic-purple),
                 var(--electric-teal),
@@ -235,6 +235,65 @@
             font-size: 1.1rem;
             color: #fff;
             margin-bottom: 5px;
+        }
+
+        .now-playing-content {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .now-playing-artwork {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .now-playing-details {
+            flex: 1;
+        }
+
+        .now-playing-summary {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            margin-top: 10px;
+            max-height: 80px;
+            overflow: hidden;
+        }
+
+        .episode-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .episode-link {
+            font-size: 0.7rem;
+            color: var(--electric-teal);
+            text-decoration: none;
+            letter-spacing: 2px;
+            padding: 8px 16px;
+            border: 1px solid var(--electric-teal);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .episode-link:hover {
+            background: var(--electric-teal);
+            color: var(--deep-space);
+        }
+
+        .queue-artwork {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            object-fit: cover;
+            flex-shrink: 0;
         }
 
         .now-playing-meta {
@@ -462,8 +521,17 @@
         <!-- Player Section -->
         <div class="player-section">
             <div class="now-playing-label">NOW PLAYING</div>
+            <div class="now-playing-content">
+                <img src="" alt="" class="now-playing-artwork" id="nowPlayingArtwork" style="display:none;">
+                <div class="now-playing-details">
             <div class="now-playing-title" id="nowPlayingTitle">Select an episode to begin</div>
             <div class="now-playing-meta" id="nowPlayingMeta">--:--</div>
+                    <div class="now-playing-summary" id="nowPlayingSummary"></div>
+                </div>
+            </div>
+            <div class="episode-links" id="episodeLinks" style="display:none;">
+                <a href="#" class="episode-link" id="transcriptLink" target="_blank">VIEW TRANSCRIPT</a>
+            </div>
 
             <div class="player-controls">
                 <button class="control-btn" id="prevBtn">&#9664;</button>
@@ -542,7 +610,7 @@
         // ========== EPISODE DATA ==========
         
         const episodes = [
-            { number: '001', title: 'Think Tank Paralysis: Trillion Dollar Agents and Broken Policy', duration: '35:56', file: 'episodes/001-Think-Tank-Paralysis/Episode-001-Think-Tank-Paralysis-Trillion-Dollar-Agents-and-Broken-Policy.mp4' }
+            { number: '001', title: 'Think Tank Paralysis: Trillion Dollar Agents and Broken Policy', duration: '35:56', file: 'episodes/001-Think-Tank-Paralysis/Episode-001-Think-Tank-Paralysis-Trillion-Dollar-Agents-and-Broken-Policy.mp4', coverArt: 'episodes/001-Think-Tank-Paralysis/episode-001-cover.png', transcript: 'episodes/001-Think-Tank-Paralysis/episode-001-transcript.txt', summary: 'A deep dive into AI overload and three critical paradoxes: how AI agents dissolve standalone tool value, hardware-level privacy constraints vs software trust, and surveillance vs liberty in AI policy.' }
         ];
 
         // ========== RENDER EPISODES ==========
@@ -552,6 +620,7 @@
             item.className = 'episode-item';
             item.dataset.index = index;
             item.innerHTML = `
+                ${ep.coverArt ? '<img src="' + ep.coverArt + '" alt="" class="queue-artwork">' : ''}
                 <div class="episode-number">EP ${ep.number}</div>
                 <div class="episode-info">
                     <div class="episode-title">${ep.title}</div>
@@ -590,6 +659,29 @@
 
             nowPlayingTitle.textContent = ep.title;
             nowPlayingMeta.textContent = `Episode ${ep.number}`;
+
+            // Update cover art
+            const artwork = document.getElementById('nowPlayingArtwork');
+            if (ep.coverArt) {
+                artwork.src = ep.coverArt;
+                artwork.style.display = 'block';
+            } else {
+                artwork.style.display = 'none';
+            }
+
+            // Update summary
+            const summaryEl = document.getElementById('nowPlayingSummary');
+            summaryEl.textContent = ep.summary || '';
+
+            // Update links
+            const linksEl = document.getElementById('episodeLinks');
+            const transcriptLink = document.getElementById('transcriptLink');
+            if (ep.transcript) {
+                transcriptLink.href = ep.transcript;
+                linksEl.style.display = 'flex';
+            } else {
+                linksEl.style.display = 'none';
+            }
 
             // Load audio
             audio.src = ep.file;
