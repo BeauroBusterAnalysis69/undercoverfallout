@@ -163,7 +163,19 @@ FFmpeg path: `C:\Users\rober\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg
 
 ---
 
-*Last updated: January 8, 2026*
+*Last updated: January 15, 2026*
+
+---
+
+## Quick Start Paths (For Claude)
+
+When starting a new session, use these paths directly:
+- **Project folder:** `C:/Users/rober/OneDrive/Desktop/undercover-fallout/`
+- **Downloads:** `C:/Users/rober/Downloads/`
+- **Python:** `C:\Users\rober\AppData\Local\Programs\Python\Python312\python.exe`
+- **FFmpeg:** `C:\Users\rober\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.0.1-full_build\bin\`
+
+Run transcription from the project folder (not System32) to avoid permission errors with temp files.
 
 ---
 
