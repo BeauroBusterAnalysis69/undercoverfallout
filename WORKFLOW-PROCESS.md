@@ -36,8 +36,8 @@ undercover-fallout/
 ├── WORKFLOW-PROCESS.md        # This document
 ├── episodes/
 │   ├── 001-Episode-Title/
-│   │   ├── Episode-001-Title.mp4        # Video file (compressed)
-│   │   ├── Episode-001-Title.m4a        # Original audio (backup)
+│   │   ├── Episode-001-Title.mp4        # Video file (for embeds/backup)
+│   │   ├── Episode-001-Title.m4a        # Audio file (USED BY WEBSITE PLAYER)
 │   │   ├── episode-001-cover.png        # Cover art
 │   │   ├── episode-001-transcript.txt   # Full transcript
 │   │   └── episode-001-summary.txt      # Episode summary
@@ -98,8 +98,9 @@ undercover-fallout/
 ### Phase 3: Publishing (Claude)
 
 7. **Update Website**
-   - Adds episode to index.html
-   - Links to episode files
+   - Adds episode to index.html episodes array
+   - IMPORTANT: Use .m4a file path (not .mp4) - the audio player doesn't support mp4 video
+   - Links to cover art, transcript
 
 8. **Push to GitHub**
    - Commits all changes
