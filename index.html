@@ -648,7 +648,7 @@
 
         let currentEpisode = -1;
 
-        function loadEpisode(index) {
+        function loadEpisode(index, autoPlay = true) {
             if (episodes[index].file === '') return; // No file yet
 
             currentEpisode = index;
@@ -687,9 +687,14 @@
 
             // Load audio
             audio.src = ep.file;
-            audio.play();
-            playBtn.innerHTML = '&#10074;&#10074;';
+            if (autoPlay) {
+                audio.play();
+                playBtn.innerHTML = '&#10074;&#10074;';
+            }
         }
+
+        // Auto-load latest episode on page load (without auto-play)
+        loadEpisode(0, false);
 
         playBtn.addEventListener('click', () => {
             if (audio.paused) {
