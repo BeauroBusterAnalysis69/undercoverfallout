@@ -1,0 +1,23 @@
+Episode 003: AI Proliferation: Only the Bad Guys Go Uncensored
+
+SUMMARY:
+What happens when you need to hire an intelligence analyst who can face the ugly realities of drug cartels, money laundering, and geopolitical threats - but the only candidates available cover their ears and recite HR manuals? This episode dives into a real stress test conducted by researcher "Johnny Spark" in his garage, running local LLMs on his own hardware without corporate safety filters.
+
+The fundamental question: Can AI think like a spy? The experiment reveals a troubling asymmetry - while corporations impose increasingly restrictive guardrails on their AI services, anyone can download uncensored models to their own machine. Safety filters only constrain those who follow the rules, while adversaries, cartels, and hostile actors face no such limitations.
+
+KEY THEMES:
+- Local LLMs vs cloud-based AI: Owning the brain vs renting it
+- The proliferation problem: Uncensored AI is already out there
+- Safety theater: When guardrails only handicap the good guys
+- Intelligence work requirements: Analysts who can face reality unvarnished
+- The garage revolution: Running AI without corporate oversight
+
+TOPICS COVERED:
+- Running local language models on personal hardware
+- Corporate AI safety filters and their limitations
+- Drug cartel analysis and intelligence gathering
+- The asymmetry between regulated and unregulated AI users
+- Implications for national security and intelligence agencies
+
+TAGS:
+#LocalLLM #AISafety #Intelligence #Cybersecurity #Proliferation #Cartels #CorporateAI #Guardrails #JohnnySpark #UnfilteredAI
