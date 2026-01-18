@@ -131,10 +131,22 @@ When cover is ready:
 - MP4 output compressed to ~50-80MB (under GitHub 100MB limit)
 - Settings: CRF 28, AAC 128k, fast preset
 
-### Transcription
-- Uses free Google Speech Recognition API
-- 30-second chunks for API limits
+### Transcription (Two Options)
+
+**Option 1: Google Speech Recognition (Fast, but unreliable)**
+- Uses free Google Speech Recognition API via `tools/transcribe_audio.py`
+- Splits into 30-second chunks for API limits
 - ~5 minutes to transcribe 35-min episode
+- Can hit rate limits/connection drops on longer episodes
+
+**Option 2: OpenAI Whisper (Recommended)**
+- Local transcription using Whisper AI model
+- More accurate, no API limits or connection issues
+- Runs on CPU (~15-30 min for 24 min audio) or GPU (much faster)
+- Command: `python -m whisper "audio.m4a" --model small --output_format txt --output_dir .`
+- Models: tiny (fastest), base, small (good balance), medium, large (most accurate)
+
+**Limbaugh Style: Transcript goes up AFTER the episode is live.** Push the episode first, transcribe in background, update later.
 
 ### GitHub Limits
 - Max file size: 100MB
@@ -164,7 +176,7 @@ FFmpeg path: `C:\Users\rober\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg
 
 ---
 
-*Last updated: January 15, 2026*
+*Last updated: January 18, 2026*
 
 ---
 
