@@ -388,6 +388,68 @@
             margin-bottom: 20px;
         }
 
+        /* ========== DOCUMENTS SECTION ========== */
+        .documents-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        .documents-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--dead-red);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .document-item:hover {
+            border-color: var(--dead-red);
+            background: rgba(239, 68, 68, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+        }
+
+        .document-icon {
+            font-size: 1.5rem;
+            color: var(--dead-red);
+        }
+
+        .document-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            flex: 1;
+        }
+
+        .document-arrow {
+            color: var(--dead-red);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .document-item:hover .document-arrow {
+            opacity: 1;
+        }
+
         .episode-item {
             display: flex;
             align-items: center;
@@ -518,6 +580,16 @@
 
     <!-- Main Content -->
     <div class="main-container">
+        <!-- Documents Section -->
+        <div class="documents-section">
+            <h2 class="documents-header">Bureaucratic Deconstruction Damage Control Documents</h2>
+            <a href="#" class="document-item">
+                <span class="document-icon">📁</span>
+                <span class="document-title">Fentanyl Corridor Assessment</span>
+                <span class="document-arrow">→</span>
+            </a>
+        </div>
+
         <!-- Player Section -->
         <div class="player-section">
             <div class="now-playing-label">NOW PLAYING</div>
