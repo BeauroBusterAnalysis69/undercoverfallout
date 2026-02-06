@@ -214,6 +214,26 @@
             text-transform: uppercase;
         }
 
+        /* ========== PLAZA BACKGROUND ACCENT ========== */
+        .plaza-accent {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .plaza-accent img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+            opacity: 0.35;
+            filter: grayscale(30%) contrast(1.1);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 75%, transparent 100%);
+        }
+
         /* ========== MAIN CONTENT ========== */
         .main-container {
             max-width: 1000px;
@@ -585,6 +605,11 @@
         <h1 class="site-title">UNDERCOVER FALLOUT</h1>
         <p class="tagline">Transmission from the End of Busy Work</p>
     </header>
+
+    <!-- Plaza Background Accent -->
+    <div class="plaza-accent">
+        <img src="plaza-bg.jpg" alt="">
+    </div>
 
     <!-- Main Content -->
     <div class="main-container">
