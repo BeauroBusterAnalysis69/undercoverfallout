@@ -176,7 +176,17 @@ FFmpeg path: `C:\Users\rober\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg
 
 ---
 
-*Last updated: January 18, 2026*
+*Last updated: February 6, 2026*
+
+---
+
+## Security Notes
+
+**Repository Ownership:** The repo is hosted under a separate GitHub account (`BeauroBusterAnalysis69`) to maintain separation from personal identity. This provides an additional layer of operational security for the project.
+
+- **Repo URL:** `https://github.com/BeauroBusterAnalysis69/undercoverfallout.git`
+- **Git Author:** `BeauroBusterAnalysis69` (configured locally for this repo)
+- **Domain:** undercoverfallout.com (via GitHub Pages)
 
 ---
 
