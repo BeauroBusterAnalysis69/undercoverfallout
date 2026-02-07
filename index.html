@@ -214,38 +214,56 @@
             text-transform: uppercase;
         }
 
-        /* ========== PLAZA BACKGROUND ACCENT ========== */
-        .main-container {
-            position: relative;
-        }
-
-        .plaza-bg-layer {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1000px;
-            height: 600px;
-            z-index: 0;
+        /* ========== PLAZA SIDE ACCENTS ========== */
+        .plaza-left, .plaza-right {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            height: 500px;
             pointer-events: none;
+            z-index: 0;
             overflow: hidden;
         }
 
-        .plaza-bg-layer img {
-            width: 100%;
+        .plaza-left {
+            left: 0;
+            mask-image: linear-gradient(to right, black 30%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 30%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
+        }
+
+        .plaza-right {
+            right: 0;
+            mask-image: linear-gradient(to left, black 30%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
+        }
+
+        .plaza-left img, .plaza-right img {
+            width: 560px;
             height: 100%;
             object-fit: cover;
             object-position: center 20%;
-            opacity: 0.2;
-            filter: grayscale(40%) contrast(1.1);
-            mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 50%, transparent 100%);
+            opacity: 0.3;
+            filter: grayscale(30%) contrast(1.1);
         }
 
-        .main-container > *:not(.plaza-bg-layer) {
-            position: relative;
-            z-index: 1;
+        .plaza-left img {
+            object-position: left 20%;
+        }
+
+        .plaza-right img {
+            margin-left: -280px;
+            object-position: right 20%;
+        }
+
+        @media (max-width: 1400px) {
+            .plaza-left, .plaza-right {
+                display: none;
+            }
         }
 
         /* ========== MAIN CONTENT ========== */
@@ -620,13 +638,12 @@
         <p class="tagline">Transmission from the End of Busy Work</p>
     </header>
 
+    <!-- Plaza Side Accents -->
+    <div class="plaza-left"><img src="plaza-bg.jpg" alt=""></div>
+    <div class="plaza-right"><img src="plaza-bg.jpg" alt=""></div>
+
     <!-- Main Content -->
     <div class="main-container">
-        <!-- Plaza Background Layer -->
-        <div class="plaza-bg-layer">
-            <img src="plaza-bg.jpg" alt="">
-        </div>
-
         <!-- Documents Section -->
         <div class="documents-section">
             <h2 class="documents-header">Bureaucratic Deconstruction Damage Control Documents</h2>
