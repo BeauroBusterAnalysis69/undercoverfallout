@@ -595,6 +595,56 @@
             opacity: 1;
         }
 
+        /* ========== VIDEO BOX ========== */
+        .video-box {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            width: 280px;
+            z-index: 50;
+            background: var(--card-bg);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 12px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-box:hover {
+            border-color: var(--dead-red);
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.3);
+            transform: scale(1.02);
+        }
+
+        .video-box video {
+            width: 100%;
+            display: block;
+            border-radius: 11px 11px 0 0;
+        }
+
+        .video-box-label {
+            padding: 10px 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--dead-red);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        @media (max-width: 1400px) {
+            .video-box {
+                position: relative;
+                left: auto;
+                bottom: auto;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto 20px;
+            }
+        }
+
         /* ========== FOOTER ========== */
         footer {
             text-align: center;
@@ -641,6 +691,12 @@
     <!-- Plaza Side Accents -->
     <div class="plaza-left"><img src="plaza-bg.jpg" alt=""></div>
     <div class="plaza-right"><img src="plaza-bg.jpg" alt=""></div>
+
+    <!-- Video Box -->
+    <div class="video-box" id="videoBox" onclick="var v=this.querySelector('video');if(v.paused){v.play()}else{v.pause()}">
+        <video src="systemic-capture.mp4" preload="metadata"></video>
+        <div class="video-box-label">Systemic Capture</div>
+    </div>
 
     <!-- Main Content -->
     <div class="main-container">
