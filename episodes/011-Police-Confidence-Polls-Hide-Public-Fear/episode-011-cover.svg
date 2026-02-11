@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0a0a12"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="60%" r="40%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="30%" cy="30%" r="35%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="70%" cy="80%" r="30%">
+      <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="railGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#333"/>
+      <stop offset="30%" stop-color="#888"/>
+      <stop offset="50%" stop-color="#ccc"/>
+      <stop offset="70%" stop-color="#888"/>
+      <stop offset="100%" stop-color="#333"/>
+    </linearGradient>
+    <linearGradient id="thirdRailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="25%" stop-color="#F97316"/>
+      <stop offset="50%" stop-color="#EF4444"/>
+      <stop offset="75%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <filter id="electricGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="heavyGlow">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <!-- Chevron warning pattern -->
+    <pattern id="hazard" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+      <rect width="40" height="20" fill="#1a1a2e"/>
+      <polygon points="0,0 10,0 20,10 10,20 0,20" fill="#F97316" opacity="0.6"/>
+      <polygon points="20,0 30,0 40,10 30,20 20,20" fill="#F97316" opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1400" fill="url(#bg)"/>
+  <rect width="1400" height="1400" fill="url(#glow1)"/>
+  <rect width="1400" height="1400" fill="url(#glow2)"/>
+  <rect width="1400" height="1400" fill="url(#glow3)"/>
+
+  <!-- Subtle grid lines suggesting city/subway -->
+  <g opacity="0.06" stroke="#8B5CF6" stroke-width="1">
+    <line x1="0" y1="200" x2="1400" y2="200"/>
+    <line x1="0" y1="400" x2="1400" y2="400"/>
+    <line x1="0" y1="600" x2="1400" y2="600"/>
+    <line x1="0" y1="800" x2="1400" y2="800"/>
+    <line x1="0" y1="1000" x2="1400" y2="1000"/>
+    <line x1="0" y1="1200" x2="1400" y2="1200"/>
+    <line x1="200" y1="0" x2="200" y2="1400"/>
+    <line x1="400" y1="0" x2="400" y2="1400"/>
+    <line x1="600" y1="0" x2="600" y2="1400"/>
+    <line x1="800" y1="0" x2="800" y2="1400"/>
+    <line x1="1000" y1="0" x2="1000" y2="1400"/>
+    <line x1="1200" y1="0" x2="1200" y2="1400"/>
+  </g>
+
+  <!-- Three rails converging in perspective -->
+  <!-- Left rail -->
+  <line x1="100" y1="1400" x2="580" y2="650" stroke="url(#railGrad)" stroke-width="8" stroke-linecap="round"/>
+  <!-- Right rail -->
+  <line x1="1300" y1="1400" x2="820" y2="650" stroke="url(#railGrad)" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- THIRD RAIL - the dangerous one, glowing red/orange center -->
+  <line x1="700" y1="1400" x2="700" y2="650" stroke="url(#thirdRailGrad)" stroke-width="12" filter="url(#heavyGlow)" stroke-linecap="round"/>
+
+  <!-- Electric arcs from third rail -->
+  <g filter="url(#electricGlow)" opacity="0.8">
+    <polyline points="700,750 720,730 690,710 730,690" stroke="#F97316" stroke-width="3" fill="none"/>
+    <polyline points="700,850 675,830 710,810 670,790" stroke="#EF4444" stroke-width="2.5" fill="none"/>
+    <polyline points="700,950 735,935 695,915 740,895" stroke="#F97316" stroke-width="2" fill="none"/>
+    <polyline points="700,1050 680,1030 720,1010 675,990" stroke="#EF4444" stroke-width="3" fill="none"/>
+    <polyline points="700,1150 730,1135 685,1115 725,1095" stroke="#F97316" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Warning stripe bar -->
+  <rect x="0" y="620" width="1400" height="6" fill="url(#hazard)" opacity="0.5"/>
+
+  <!-- HIGH VOLTAGE symbol -->
+  <g transform="translate(700, 520)" filter="url(#electricGlow)">
+    <polygon points="0,-80 25,-10 8,-10 30,80 -5,5 12,5" fill="#F97316" opacity="0.9"/>
+  </g>
+
+  <!-- Bar chart suggesting polls - with fake confidence -->
+  <g transform="translate(150, 180)" opacity="0.15">
+    <rect x="0" y="60" width="60" height="200" rx="4" fill="#14B8A6"/>
+    <rect x="80" y="30" width="60" height="230" rx="4" fill="#14B8A6"/>
+    <rect x="160" y="10" width="60" height="250" rx="4" fill="#14B8A6"/>
+    <rect x="240" y="0" width="60" height="260" rx="4" fill="#14B8A6"/>
+    <text x="270" y="-15" fill="#14B8A6" font-family="monospace" font-size="28" text-anchor="middle">74%</text>
+  </g>
+
+  <!-- "74%" big faded in background -->
+  <text x="1100" y="350" fill="#EF4444" font-family="monospace" font-size="180" font-weight="bold" opacity="0.08" text-anchor="middle">74%</text>
+
+  <!-- Silhouette figures (simplified) looking away / avoiding -->
+  <g opacity="0.12">
+    <!-- Figure left, turned away -->
+    <circle cx="300" cy="1100" r="25" fill="#fff"/>
+    <rect x="285" y="1125" width="30" height="70" rx="10" fill="#fff"/>
+    <!-- Figure right, turned away -->
+    <circle cx="1100" cy="1100" r="25" fill="#fff"/>
+    <rect x="1085" y="1125" width="30" height="70" rx="10" fill="#fff"/>
+  </g>
+
+  <!-- EPISODE NUMBER -->
+  <text x="700" y="100" text-anchor="middle" font-family="monospace" font-size="24" letter-spacing="8" fill="#EC4899" opacity="0.7">EPISODE 011</text>
+
+  <!-- TITLE -->
+  <text x="700" y="1280" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="62" fill="url(#titleGrad)" filter="url(#textGlow)">POLICE CONFIDENCE POLLS</text>
+  <text x="700" y="1345" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="62" fill="url(#titleGrad)" filter="url(#textGlow)">HIDE PUBLIC FEAR</text>
+
+  <!-- Subtitle -->
+  <text x="700" y="155" text-anchor="middle" font-family="monospace" font-size="20" letter-spacing="6" fill="rgba(255,255,255,0.3)">UNDERCOVER FALLOUT</text>
+
+  <!-- Tagline at bottom -->
+  <text x="700" y="1390" text-anchor="middle" font-family="monospace" font-size="16" letter-spacing="4" fill="rgba(255,255,255,0.25)">TOUCH THE THIRD RAIL</text>
+</svg>
