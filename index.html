@@ -455,6 +455,63 @@
             text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
         }
 
+        /* ========== VIDEO GALLERY ========== */
+        .video-gallery {
+            background: var(--card-bg);
+            border: 1px solid rgba(167, 139, 250, 0.5);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(167, 139, 250, 0.1);
+        }
+
+        .video-gallery-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--cosmic-purple);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .video-card {
+            background: rgba(167, 139, 250, 0.08);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            border-color: var(--cosmic-purple);
+            box-shadow: 0 0 25px rgba(167, 139, 250, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-card-label {
+            padding: 12px 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--cosmic-purple);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
+        }
+
         /* ========== MISSION BANNER ========== */
         .mission-banner {
             border-radius: 16px;
@@ -908,6 +965,25 @@
 
     <!-- Main Content -->
     <div class="main-container">
+        <!-- Video Gallery -->
+        <div class="video-gallery">
+            <h2 class="video-gallery-header">Field Footage</h2>
+            <div class="video-grid">
+                <div class="video-card" onclick="var v=this.querySelector('video');if(v.paused){v.play()}else{v.pause()}">
+                    <video src="mov/clip-01.mp4" preload="metadata"></video>
+                    <div class="video-card-label">Clip 01</div>
+                </div>
+                <div class="video-card" onclick="var v=this.querySelector('video');if(v.paused){v.play()}else{v.pause()}">
+                    <video src="mov/clip-02.mp4" preload="metadata"></video>
+                    <div class="video-card-label">Clip 02</div>
+                </div>
+                <div class="video-card" onclick="var v=this.querySelector('video');if(v.paused){v.play()}else{v.pause()}">
+                    <video src="mov/clip-03.mp4" preload="metadata"></video>
+                    <div class="video-card-label">Clip 03</div>
+                </div>
+            </div>
+        </div>
+
         <!-- Mission Banner -->
         <div class="mission-banner">
             <img src="mission-statement.png" alt="The United States Justice System has been captured. If we AUDIT now, we can reclaim this territory.">
