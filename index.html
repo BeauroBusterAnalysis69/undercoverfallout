@@ -534,6 +534,186 @@
             opacity: 1;
         }
 
+        /* ========== SLIDES SECTION ========== */
+        .slides-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        .slides-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--sunset-orange);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .slide-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(249, 115, 22, 0.05);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .slide-item:hover {
+            border-color: var(--sunset-orange);
+            background: rgba(249, 115, 22, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.2);
+        }
+
+        .slide-icon {
+            font-size: 1.5rem;
+            color: var(--sunset-orange);
+        }
+
+        .slide-info {
+            flex: 1;
+        }
+
+        .slide-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .slide-subtitle {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .slide-badge {
+            font-size: 0.6rem;
+            color: var(--sunset-orange);
+            border: 1px solid var(--sunset-orange);
+            padding: 3px 8px;
+            border-radius: 10px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .slide-arrow {
+            color: var(--sunset-orange);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .slide-item:hover .slide-arrow {
+            opacity: 1;
+        }
+
+        /* ========== DPA MISSION SECTION ========== */
+        .dpa-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(20, 184, 166, 0.4);
+            border-radius: 16px;
+            padding: 0 25px 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dpa-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cosmic-purple), var(--electric-teal), var(--cosmic-pink));
+        }
+
+        .dpa-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--electric-teal);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 25px;
+            margin-bottom: 6px;
+            text-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+        }
+
+        .dpa-subtitle {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .dpa-mission {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .dpa-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .dpa-pillar {
+            padding: 20px;
+            background: rgba(20, 184, 166, 0.05);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .dpa-pillar:hover {
+            border-color: var(--electric-teal);
+            background: rgba(20, 184, 166, 0.1);
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.15);
+        }
+
+        .dpa-pillar-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .dpa-pillar-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--electric-teal);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .dpa-pillar-desc {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        .dpa-footer {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--electric-teal);
+            letter-spacing: 3px;
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(20, 184, 166, 0.15);
+            text-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
+        }
+
         .episode-item {
             display: flex;
             align-items: center;
@@ -733,6 +913,33 @@
             <img src="mission-statement.png" alt="The United States Justice System has been captured. If we AUDIT now, we can reclaim this territory.">
         </div>
 
+        <!-- Democracy Protection Agency Section -->
+        <div class="dpa-section">
+            <h2 class="dpa-header">Democracy Protection Agency</h2>
+            <p class="dpa-subtitle">An AI-Powered Institutional Integrity Audit Framework</p>
+            <p class="dpa-mission">
+                The Democracy Protection Agency deploys AI-powered audit algorithms against publicly available data to detect patterns of institutional capture that human oversight consistently misses. Built on three detection pillars, the DPA cross-references law enforcement activity, judicial outcomes, and financial disclosures to surface the structural corruption that hides in plain sight. This is the operational next step from the research already published here — the Plaza Model exposed the architecture of capture, the Fentanyl Corridor Assessment mapped the supply chains it protects. Now we audit the machinery itself.
+            </p>
+            <div class="dpa-pillars">
+                <div class="dpa-pillar">
+                    <div class="dpa-pillar-icon">&#128737;</div>
+                    <div class="dpa-pillar-title">Corrupt Patrol Corridors</div>
+                    <p class="dpa-pillar-desc">Detect anomalous zero-patrol zones at specific times — streets that go unpoliced during trafficking windows. Cross-reference 911 response time data with patrol GPS logs and incident reports to map corridors where law enforcement deliberately stands down.</p>
+                </div>
+                <div class="dpa-pillar">
+                    <div class="dpa-pillar-icon">&#9878;</div>
+                    <div class="dpa-pillar-title">Sentencing Disparities</div>
+                    <p class="dpa-pillar-desc">Identify two-tier justice — where connected individuals receive catch-and-release treatment while rivals and dissidents receive maximum sentencing. Analyze sealed record frequency, bail patterns, and sentencing distributions across demographic and association lines.</p>
+                </div>
+                <div class="dpa-pillar">
+                    <div class="dpa-pillar-icon">&#128200;</div>
+                    <div class="dpa-pillar-title">Financial Anomalies</div>
+                    <p class="dpa-pillar-desc">Audit public servant financial disclosures, municipal contracts, grant disbursements, and asset forfeiture flows. Detect shell company patterns, diversion of federal funds, and unexplained wealth accumulation in officials overseeing captured institutions.</p>
+                </div>
+            </div>
+            <div class="dpa-footer">AUDIT THE DRAWERS. CONTROL THE GOLD.</div>
+        </div>
+
         <!-- Documents Section -->
         <div class="documents-section">
             <h2 class="documents-header">Bureaucratic Deconstruction Damage Control Documents</h2>
@@ -745,6 +952,20 @@
                 <span class="document-icon">📊</span>
                 <span class="document-title">Systemic Capture & Integrity Audits — Slide Deck</span>
                 <span class="document-arrow">→</span>
+            </a>
+        </div>
+
+        <!-- Slide Decks Section -->
+        <div class="slides-section">
+            <h2 class="slides-header">Intelligence Briefing Decks</h2>
+            <a href="slides/Systemic_Capture_and_Integrity_Audits.pdf" target="_blank" class="slide-item">
+                <span class="slide-icon">&#9632;&#9632;&#9632;</span>
+                <div class="slide-info">
+                    <div class="slide-title">Systemic Capture: Breaking the Plaza Model</div>
+                    <div class="slide-subtitle">A Framework for Institutional Integrity Audits & Domestic Counterintelligence</div>
+                </div>
+                <span class="slide-badge">15 SLIDES</span>
+                <span class="slide-arrow">&rarr;</span>
             </a>
         </div>
 
